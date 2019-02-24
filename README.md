@@ -8,3 +8,4 @@ We are working with our team "Cardassians" to create and improve upon the game o
 ## Description
 This project will be a tetris clone where the Cardassians will take source code from a Tetris tutorial and add menus and extra functionality.
 ## Why is it special?
+This project is special becuase in this project, our team shall attempt to make a Tetris clone that will be more special than the average Tetric clone. 
