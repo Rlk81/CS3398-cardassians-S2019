@@ -1,4 +1,4 @@
-# Ｔｅｔｒｉｓ
+# Ｔｅｅｔｒｉｓ
 
 # Welcome to yet another teris clone
 
