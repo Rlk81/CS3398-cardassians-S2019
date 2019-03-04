@@ -1,0 +1,5 @@
+Advanced C++ Graphics tutorials
+https://m.youtube.com/playlist?list=PLSPw4ASQYyymu3PfG9gxywSPghnSMiOAW
+
+SDL tutorials
+http://lazyfoo.net/tutorials/SDL/index.php
