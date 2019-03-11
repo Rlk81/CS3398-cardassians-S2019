@@ -1,9 +1,5 @@
 #include "Start_menu.h"
 
-
-
-
-
 void Start_menu::Start_Menu(IO startIO){
 	
 	

@@ -1,0 +1,8 @@
+﻿  Main.cpp
+     Creating library C:\Users\ralph\Documents\GitHub\CS3398-cardassians-S2019\Release\tetris_tutorial_sdl.lib and object C:\Users\ralph\Documents\GitHub\CS3398-cardassians-S2019\Release\tetris_tutorial_sdl.exp
+  Generating code
+  1 of 36 functions ( 2.8%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  tetris_tutorial_sdl.vcxproj -> C:\Users\ralph\Documents\GitHub\CS3398-cardassians-S2019\Release\tetris_tutorial_sdl.exe

@@ -13,11 +13,7 @@
 class Start_menu{
 public:
 	
-	
 	void Start_Menu(IO startIO);
-	
-
-
 	
 };
 

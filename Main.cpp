@@ -17,6 +17,10 @@
 /*****************************************************************************************/
 
 #include "Game.h"
+#include "Start_menu.cpp"
+#include "Pause_menu.cpp"
+
+
 #ifndef LINUX
 #include <windows.h>
 #endif
@@ -54,6 +58,7 @@ int main()
 
 	//Creates start menu
 	Start_menu s;
+	
 	s.Start_Menu(mIO);
 	
 	// ----- Main Loop -----
@@ -120,6 +125,15 @@ int main()
 
 				break;
 			}
+			case (SDLK_p):
+			{
+				
+				Pause_menu p;
+				p.Pause_Menu(mIO);
+
+				break;
+			}
+
 		}
 
 		// ----- Vertical movement -----
