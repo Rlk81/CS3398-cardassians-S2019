@@ -1,14 +1,14 @@
 /*****************************************************************************************
 /* Desc: Tetris tutorial
 /*
-/* gametuto.com - Javier López López (javilop.com)
+/* gametuto.com - Javier LÃ³pez LÃ³pez (javilop.com)
 /*
 /*****************************************************************************************
 /*
 /* Creative Commons - Attribution 3.0 Unported
 /* You are free:
-/*	to Share — to copy, distribute and transmit the work
-/*	to Remix — to adapt the work
+/*	to Share â€” to copy, distribute and transmit the work
+/*	to Remix â€” to adapt the work
 /*
 /* Under the following conditions:
 /* Attribution. You must attribute the work in the manner specified by the author or licensor 
@@ -52,6 +52,10 @@ int main()
 	// Get the actual clock milliseconds (SDL)
 	unsigned long mTime1 = SDL_GetTicks();
 
+	//Creates start menu
+	Start_menu s;
+	s.Start_Menu(mIO);
+	
 	// ----- Main Loop -----
 
 	while (!mIO.IsKeyDown (SDLK_ESCAPE))
