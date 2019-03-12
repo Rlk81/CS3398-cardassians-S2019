@@ -1,4 +1,5 @@
 #include "Start_menu.h"
+#include "Options_menu.h"
 
 void Start_menu::Start_Menu(IO startIO) {
 
@@ -9,6 +10,7 @@ void Start_menu::Start_Menu(IO startIO) {
 	SDL_Surface* start_button = NULL;
 	SDL_Surface* start_button_mouse_over = NULL;
 	SDL_Surface* options_button = NULL;
+	SDL_Surface* options_button_mouse_over = NULL;
 
 	//Start SDL
 	SDL_Init(SDL_INIT_EVERYTHING);
@@ -24,10 +26,11 @@ void Start_menu::Start_Menu(IO startIO) {
 
 	//Load start button
 	start_button = SDL_LoadBMP("Start_button.bmp");
-	start_button_mouse_over = SDL_LoadBMP("start_button_mouseover.bmp");
+	start_button_mouse_over = SDL_LoadBMP("Start_button_mouseover.bmp");
 
 	//Options button
 	options_button = SDL_LoadBMP("Options_button.bmp");
+	options_button_mouse_over = SDL_LoadBMP("Options_button_mouseover.bmp");
 
 	SDL_Rect srcrect;
 	SDL_Rect start_rect;
@@ -78,6 +81,30 @@ void Start_menu::Start_Menu(IO startIO) {
 			SDL_Flip(start_screen);
 			SDL_BlitSurface(start_button, NULL, start_screen, &start_rect);
 		}
+
+		//if over options button, button turns white
+                SDL_GetMouseState(&Mx, &My); 
+                if ((Mx > 265) && (Mx < 400))
+                        if ((My < 358)& (My > 300)) {  
+                                SDL_Flip(start_screen);
+                                SDL_BlitSurface(options_button_mouse_over, NULL, start_screen, &options_rect);
+                        }
+
+		//Click options button
+		// Creates new options menu- there's gotta be a better way to do this
+                if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT) &(Mx > 265) && (Mx < 400) & (My < 358) & (My > 300)) {
+                        Options_menu o;
+                        o.Options_Menu(startIO);
+                        break;
+                }
+
+		//if mouse not over button, turns back to original
+                SDL_GetMouseState(&Mx, &My);
+
+                if ((Mx < 265) || (Mx > 400) || (My > 358) || (My < 300)) {
+                        SDL_Flip(start_screen);
+                        SDL_BlitSurface(options_button, NULL, start_screen, &options_rect);
+                }
 
 	}
 

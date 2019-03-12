@@ -19,7 +19,7 @@
 #include "Game.h"
 #include "Start_menu.cpp"
 #include "Pause_menu.cpp"
-
+#include "Options_menu.cpp"
 
 #ifndef LINUX
 #include <windows.h>
