@@ -33,3 +33,6 @@ Left, Right, Down | I will not offend your intelligence
 ## Individual Features/accomplishments
 * Ralph Kelley
   * I created the pause menu and all pause menu related items and implemented them into the code. The pause menu is activated when you press the "P" key which pops up a menu in which you can pause and unpause the game.    
+* Isaac van Til
+  * Added an 'options' menu, integrated with the start menu.
+  * `Options_menu.h` and `Options_menu.cpp`
