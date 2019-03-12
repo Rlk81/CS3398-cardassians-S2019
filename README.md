@@ -38,8 +38,8 @@ Left, Right, Down | I will not offend your intelligence
   * Added an 'options' menu, integrated with the start menu.
   * `Options_menu.h` and `Options_menu.cpp`
 * Brian Chase
- * Created a start menu class that creates the start menu in main.
- * 'Start_menu.h', 'Start_menu.cpp', and image files used in the class
+  * Created a start menu class that creates the start menu in main.
+  * 'Start_menu.h', 'Start_menu.cpp', and image files used in the class
 
  
 ## Project Status / Next Steps
