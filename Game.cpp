@@ -22,7 +22,7 @@
 #include <windows.h>
 #endif
 #include "Game.h"
-
+#include <iostream>
 
 /* 
 ======================================									
@@ -74,11 +74,14 @@ void Game::InitGame()
 	mPosX 			= (BOARD_WIDTH / 2) + mPieces->GetXInitialPosition (mPiece, mRotation);
 	mPosY 			= mPieces->GetYInitialPosition (mPiece, mRotation);
 
-	//  Next piece
-	mNextPiece 		= GetRand (0, 6);
-	mNextRotation 	= GetRand (0, 3);
-	mNextPosX 		= BOARD_WIDTH + 5;
-	mNextPosY 		= 5;	
+	for (int i = 0; i < 4; i++)
+	{
+		pieceQueue[i].piecetype = GetRand(0, 6);
+		pieceQueue[i].pieceRotation = GetRand(0, 3);
+		pieceQueue[i].posX = BOARD_WIDTH + 5;
+		pieceQueue[i].posY = 5 * i;
+	}
+
 }
 
 
@@ -90,14 +93,23 @@ Create a random piece
 void Game::CreateNewPiece()
 {
 	// The new piece
-	mPiece			= mNextPiece;
-	mRotation		= mNextRotation;
-	mPosX 			= (BOARD_WIDTH / 2) + mPieces->GetXInitialPosition (mPiece, mRotation);
-	mPosY 			= mPieces->GetYInitialPosition (mPiece, mRotation);
+	mPiece = pieceQueue[0].piecetype;
+	mRotation = pieceQueue[0].pieceRotation;
+	mPosX = (BOARD_WIDTH / 2) + mPieces->GetXInitialPosition(mPiece, mRotation);
+	mPosY = mPieces->GetYInitialPosition(mPiece, mRotation);
+	
+	//update pieceQueue
+	for (int i = 0; i < 4; i++)
+	{
+		pieceQueue[i].piecetype = pieceQueue[i + 1].piecetype;
+		pieceQueue[i].pieceRotation = pieceQueue[i + 1].pieceRotation;
+	}
+	
 
 	// Random next piece
-	mNextPiece 		= GetRand (0, 6);
-	mNextRotation 	= GetRand (0, 3);
+	pieceQueue[3].piecetype = GetRand(0, 6);
+	pieceQueue[3].pieceRotation = GetRand(0, 3);
+	
 }
 
 
@@ -197,5 +209,10 @@ void Game::DrawScene ()
 {
 	DrawBoard ();													// Draw the delimitation lines and blocks stored in the board
 	DrawPiece (mPosX, mPosY, mPiece, mRotation);					// Draw the playing piece
-	DrawPiece (mNextPosX, mNextPosY, mNextPiece, mNextRotation);	// Draw the next piece
+	
+	for (int i = 0; i < 4; i++)
+	{
+		DrawPiece(pieceQueue[i].posX, pieceQueue[i].posY, pieceQueue[i].piecetype, pieceQueue[i].pieceRotation);
+	}
+
 }

@@ -27,10 +27,19 @@
 #include "IO.h"
 #include <time.h>
 
+
 // ------ Defines -----
 
 #define WAIT_TIME 700			// Number of milliseconds that the piece remains before going 1 block down */ 
 
+struct Piece {
+
+	int piecetype;
+	int pieceRotation;
+	int posX;
+	int posY;
+
+};
 
 // --------------------------------------------------------------------------------
 //									 Game
@@ -47,7 +56,7 @@ public:
 
 	int mPosX, mPosY;				// Position of the piece that is falling down
 	int mPiece, mRotation;			// Kind and rotation the piece that is falling down
-
+	struct Piece pieceQueue[4]; 
 private:
 
 	int mScreenHeight;				// Screen height in pixels
