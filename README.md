@@ -17,6 +17,7 @@ This project is special becuase in this project, our team will take a Tetris clo
 ## Build and run
 * Windows
   * The source code comes with SDL includes and libs ready to compile in Visual C++ Express Edition 2008. In “Release” folder there is also an executable file just in case you want to try it directly.
+  * If you are using an updated version of Visual Studios you can also install the Windows 8.1 SDk via the associated installer application and you just have to find the right package for it.
 * Linux
   * Install dependencies `libsdl-gfx1.2-dev` and `libsdl1.2-dev`
   * Compile using the included makefile
