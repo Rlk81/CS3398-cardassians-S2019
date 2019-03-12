@@ -28,7 +28,7 @@ Keys | Operation
 ESC | Quit the game
 Z | Rotate piece clockwise
 C | Rotate piece counter clockwise
-x | Drop piece
+X | Drop piece
 P | Pause game
 Left, A | Move piece left
 Right, D | Move piece right
