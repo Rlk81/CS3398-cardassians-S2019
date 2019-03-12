@@ -36,7 +36,7 @@ Left, Right, Down | I will not offend your intelligence
   * `Pause_menu.h`, `Pause_menu.cpp`, added functionallity of pressing "p" into main under the input section
 * Isaac van Til
   * Added an 'options' menu, integrated with the start menu.
-  * `Options_menu.h` and `Options_menu.cpp`
+  * `Options_menu.h`, `Options_menu.cpp`, and associated image files.
 * Brian Chase
   * Created a start menu class that creates the start menu in main.
   * 'Start_menu.h', 'Start_menu.cpp', and image files used in the class
