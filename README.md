@@ -50,6 +50,9 @@ Down, S | Move piece down
     Each Teetris piece's position inside the queue gets updated when pieceQueue[0] is pulled inside the game board.
     Then a new new Teetris piece is created for position pieceQueue[3]. 
   * Changes were made to functions of Game: InitGame(), CreateNewPiece(), and DrawScene().  
+* Fred Hanson
+  * Added counter clockwise rotation
+  * Added alternate movement keys
 
  
 ## Project Status / Next Steps
