@@ -40,7 +40,7 @@ Left, Right, Down | I will not offend your intelligence
   * `Options_menu.h`, `Options_menu.cpp`, and associated image files.
 * Brian Chase
   * Created a start menu class that creates the start menu in main.
-  * 'Start_menu.h', 'Start_menu.cpp', and image files used in the class
+  * `Start_menu.h`, `Start_menu.cpp`, and image files used in the class
 
  
 ## Project Status / Next Steps
