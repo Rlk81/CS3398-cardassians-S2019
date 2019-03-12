@@ -56,3 +56,5 @@ Down, S | Move piece down
 
  
 ## Project Status / Next Steps
+* Ralph
+  * I plan on adding some form of grid pattern in the teetris and help condense and improve the current code we have.
