@@ -78,6 +78,7 @@ int main()
 		switch (mKey)
 		{
 			case (SDLK_RIGHT): 
+			case (SDLK_d):
 			{
 				if (mBoard.IsPossibleMovement (mGame.mPosX + 1, mGame.mPosY, mGame.mPiece, mGame.mRotation))
 					mGame.mPosX++;
@@ -85,6 +86,7 @@ int main()
 			}
 
 			case (SDLK_LEFT): 
+			case (SDLK_a):
 			{
 				if (mBoard.IsPossibleMovement (mGame.mPosX - 1, mGame.mPosY, mGame.mPiece, mGame.mRotation))
 					mGame.mPosX--;	
@@ -92,6 +94,7 @@ int main()
 			}
 
 			case (SDLK_DOWN):
+			case (SDLK_s):
 			{
 				if (mBoard.IsPossibleMovement (mGame.mPosX, mGame.mPosY + 1, mGame.mPiece, mGame.mRotation))
 					mGame.mPosY++;	
@@ -122,6 +125,13 @@ int main()
 			{
 				if (mBoard.IsPossibleMovement (mGame.mPosX, mGame.mPosY, mGame.mPiece, (mGame.mRotation + 1) % 4))
 					mGame.mRotation = (mGame.mRotation + 1) % 4;
+
+				break;
+			}
+			case (SDLK_c):
+			{
+				if (mBoard.IsPossibleMovement (mGame.mPosX, mGame.mPosY, mGame.mPiece, (mGame.mRotation - 1) % 4))
+					mGame.mRotation = (mGame.mRotation - 1) % 4;
 
 				break;
 			}
