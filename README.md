@@ -26,7 +26,7 @@ This project is special becuase in this project, our team will take a Tetris clo
 Keys | Operation
 ------------ | -------------
 ESC | Quit the game
-z | Rotate the piece
+z | Rotate piece clockwise
 x | Drop piece
 p | Pause Game
 Left, Right, Down | I will not offend your intelligence
