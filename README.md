@@ -26,10 +26,13 @@ This project is special becuase in this project, our team will take a Tetris clo
 Keys | Operation
 ------------ | -------------
 ESC | Quit the game
-z | Rotate the piece
-x | Drop piece
-p | Pause game
-Left, Right, Down | I will not offend your intelligence
+Z | Rotate piece clockwise
+C | Rotate piece counter clockwise
+X | Drop piece
+P | Pause game
+Left, A | Move piece left
+Right, D | Move piece right
+Down, S | Move piece down
 
 ## Individual Features / Accomplishments
 * Ralph Kelley
