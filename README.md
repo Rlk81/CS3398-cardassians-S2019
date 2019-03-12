@@ -26,13 +26,10 @@ This project is special becuase in this project, our team will take a Tetris clo
 Keys | Operation
 ------------ | -------------
 ESC | Quit the game
-Z | Rotate piece clockwise
-C | Rotate piece counter clockwise
-X | Drop piece
-P | Pause game
-Left, A | Move piece left
-Right, D | Move piece right
-Down, S | Move piece down
+z | Rotate the piece
+x | Drop piece
+p | Pause game
+Left, Right, Down | I will not offend your intelligence
 
 ## Individual Features / Accomplishments
 * Ralph Kelley
@@ -44,6 +41,11 @@ Down, S | Move piece down
 * Brian Chase
   * Created a start menu class that creates the start menu in main.
   * `Start_menu.h`, `Start_menu.cpp`, and image files used in the class
+* John Bringmann
+  * Created the pieceQueue. This displays the next 4 Teetris pieces to the right of the game board. 
+    Each Teetris piece's position inside the queue gets updated when pieceQueue[0] is pulled inside the game board.
+    Then a new new Teetris piece is created for position pieceQueue[3]. 
+  * Changes were made to functions of Game: InitGame(), CreateNewPiece(), and DrawScene().  
 
  
 ## Project Status / Next Steps
