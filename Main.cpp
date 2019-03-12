@@ -17,9 +17,9 @@
 /*****************************************************************************************/
 
 #include "Game.h"
-#include "Start_menu.cpp"
-#include "Pause_menu.cpp"
-#include "Options_menu.cpp"
+#include "Start_menu.h"
+#include "Pause_menu.h"
+#include "Options_menu.h"
 
 #ifndef LINUX
 #include <windows.h>
