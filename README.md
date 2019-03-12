@@ -32,4 +32,4 @@ Left, Right, Down | I will not offend your intelligence
 
 ## Individual Features/accomplishments
 * Ralph Kelley
-  * I created the pause menu and all pause menu related item and implemented them into the code.  
+  * I created the pause menu and all pause menu related items and implemented them into the code.  
