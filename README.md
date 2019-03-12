@@ -30,10 +30,12 @@ x | Drop piece
 p | Pause game
 Left, Right, Down | I will not offend your intelligence
 
-## Individual Features/accomplishments
+## Individual Features / Accomplishments
 * Ralph Kelley
   * I created the pause menu and all pause menu related items and implemented them into the code. The pause menu is activated when you press the "P" key which pops up a menu in which you can pause and unpause the game.  
   * `Pause_menu.h`, `Pause_menu.cpp`, added functionallity of pressing "p" into main under the input section
 * Isaac van Til
   * Added an 'options' menu, integrated with the start menu.
   * `Options_menu.h` and `Options_menu.cpp`
+
+## Project Status / Next Steps
