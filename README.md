@@ -19,7 +19,9 @@ This project is special becuase in this project, our team will take a Tetris clo
   * The source code comes with SDL includes and libs ready to compile in Visual C++ Express Edition 2008. In “Release” folder there is also an executable file just in case you want to try it directly.
   * If you are using an updated version of Visual Studios you can also install the Windows 8.1 SDk via the associated installer application and you just have to find the right package for it.
 * Linux
-  * Install dependencies `libsdl-gfx1.2-dev` and `libsdl1.2-dev`
+  * Install dependencies for sdl
+    * Debian & derivatives: `apt-get install libsdl-gfx1.2-dev libsdl1.2-dev`
+    * Arch & derivatives: `pacman -S sdl_gfx sdl`
   * Compile using the included makefile
   
 ## How to play
@@ -56,11 +58,15 @@ Down, S | Move piece down
 
  
 ## Project Status / Next Steps
-Status of project: functional
+### Status of project: functional
+### Current added features:
+  * Start menu, pause menu, options menu, extended piece queue, piece rotation in multiple directions.
 * Ralph
   * I plan on adding some form of grid pattern in the teetris and help condense and improve the current code we have.
 * Brian
   * I plan on creating a base menu class for the various menus to remove redundant code.
 * Fred
   * I plan on communicating with the rest of the team to determine my next course of action.
+  
+ 
   
