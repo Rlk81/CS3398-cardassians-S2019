@@ -59,14 +59,13 @@ Down, S | Move piece down
  
 ## Project Status / Next Steps
 Status of project: functional
-### Current added features:
-  * Start menu, pause menu, options menu, extended piece queue, piece rotation in multiple directions.
-### Ralph
+Current additional features: Start menu, pause menu, options menu, extended piece queue, piece rotation in multiple directions.
+* Ralph
   * I plan on adding some form of grid pattern in the teetris and help condense and improve the current code we have.
-### Brian
+* Brian
   * I plan on creating a base menu class for the various menus to remove redundant code.
-## Fred
+* Fred
   * I plan on communicating with the rest of the team to determine my next course of action.
-## Isaac
+* Isaac
   * With the basic menus operational, I intend to move on to finding a way to track game scores and statistics. With access to a game score, I will be able to implement a change in color and/or speed at score thresholds to indicate moving up to a new level.
   
