@@ -58,7 +58,7 @@ Down, S | Move piece down
 
  
 ## Project Status / Next Steps
-Status of project: functional
+Status of project: functional  
 Current additional features: Start menu, pause menu, options menu, extended piece queue, piece rotation in multiple directions.
 * Ralph
   * I plan on adding some form of grid pattern in the teetris and help condense and improve the current code we have.
