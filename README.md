@@ -56,8 +56,11 @@ Down, S | Move piece down
 
  
 ## Project Status / Next Steps
+Status of project: functional
 * Ralph
   * I plan on adding some form of grid pattern in the teetris and help condense and improve the current code we have.
 * Brian
   * I plan on creating a base menu class for the various menus to remove redundant code.
+* Fred
+  * I plan on communicating with the rest of the team to determine my next course of action.
   
