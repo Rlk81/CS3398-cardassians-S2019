@@ -58,3 +58,6 @@ Down, S | Move piece down
 ## Project Status / Next Steps
 * Ralph
   * I plan on adding some form of grid pattern in the teetris and help condense and improve the current code we have.
+* Brian
+  * I plan on creating a base menu class for the various menus to remove redundant code.
+  
