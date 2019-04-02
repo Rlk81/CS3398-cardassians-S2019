@@ -143,6 +143,15 @@ int main()
 
 				break;
 			}
+			case (SDLK_r):
+			{
+				//resets board
+				mBoard.ResetBoard();
+				//Creates new pieces/piece queue
+				mGame.CreateNewPiece();
+
+				break;
+			}				
 
 		}
 
