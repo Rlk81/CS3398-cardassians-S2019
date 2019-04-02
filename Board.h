@@ -2,14 +2,14 @@
 /* File: Board.h
 /* Desc: Board of the game. A matrix of n x n holes.
 /*
-/* gametuto.com - Javier López López (javilop.com)
+/* gametuto.com - Javier LÃ³pez LÃ³pez (javilop.com)
 /*
 /*****************************************************************************************
 /*
 /* Creative Commons - Attribution 3.0 Unported
 /* You are free:
-/*	to Share — to copy, distribute and transmit the work
-/*	to Remix — to adapt the work
+/*	to Share â€” to copy, distribute and transmit the work
+/*	to Remix â€” to adapt the work
 /*
 /* Under the following conditions:
 /* Attribution. You must attribute the work in the manner specified by the author or licensor 
@@ -53,7 +53,7 @@ public:
 	void StorePiece				(int pX, int pY, int pPiece, int pRotation);
 	void DeletePossibleLines	();
 	bool IsGameOver				();
-
+	void ResetBoard				();
 private:
 
 	enum { POS_FREE, POS_FILLED };			// POS_FREE = free position of the board; POS_FILLED = filled position of the board
