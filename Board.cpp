@@ -2,14 +2,14 @@
 /* File: Board.cpp
 /* Desc: Board of the game. A matrix of n x n holes.
 /*
-/* gametuto.com - Javier López López (javilop.com)
+/* gametuto.com - Javier LÃ³pez LÃ³pez (javilop.com)
 /*
 /*****************************************************************************************
 /*
 /* Creative Commons - Attribution 3.0 Unported
 /* You are free:
-/*	to Share — to copy, distribute and transmit the work
-/*	to Remix — to adapt the work
+/*	to Share â€” to copy, distribute and transmit the work
+/*	to Remix â€” to adapt the work
 /*
 /* Under the following conditions:
 /* Attribution. You must attribute the work in the manner specified by the author or licensor 
@@ -228,4 +228,16 @@ bool Board::IsPossibleMovement (int pX, int pY, int pPiece, int pRotation)
 
 	// No collision
 	return true;
+}
+
+void Board::ResetBoard() {
+	
+		//Deletes all lines on game board
+		for (int i = 0; i < BOARD_HEIGHT; i++)
+		{
+			DeleteLine(i);
+		}
+	
+		
+	
 }
