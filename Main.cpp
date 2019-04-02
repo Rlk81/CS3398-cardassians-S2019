@@ -139,7 +139,7 @@ int main()
 			{
 				
 				Pause_menu p;
-				p.Pause_Menu(mIO);
+				p.Pause_Menu(mIO, mBoard,  mGame);
 
 				break;
 			}
