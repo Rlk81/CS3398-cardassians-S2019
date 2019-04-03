@@ -4,8 +4,8 @@ void Facade::facade()
 {
 	// ----- Vars -----
 
-		// Class for drawing staff, it uses SDL for the rendering. Change the methods of this class
-		// in order to use a different renderer
+	// Class for drawing staff, it uses SDL for the rendering. Change the methods of this class
+	// in order to use a different renderer
 	IO mIO;
 	int mScreenHeight = mIO.GetScreenHeight();
 
