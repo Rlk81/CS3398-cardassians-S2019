@@ -2,7 +2,10 @@
 
 void Facade::facade()
 {
+	// ----- Vars -----
 
+		// Class for drawing staff, it uses SDL for the rendering. Change the methods of this class
+		// in order to use a different renderer
 	IO mIO;
 	int mScreenHeight = mIO.GetScreenHeight();
 
@@ -20,12 +23,11 @@ void Facade::facade()
 
 	//Creates start menu
 	Start_menu s;
-	Pause_menu p;
 
 	s.Start_Menu(mIO);
 
 	// ----- Main Loop -----
-	
+
 	while (!mIO.IsKeyDown(SDLK_ESCAPE))
 	{
 		// ----- Draw -----
@@ -100,13 +102,18 @@ void Facade::facade()
 		}
 		case (SDLK_p):
 		{
-			int counter = 0; 
-			
 
-			if (counter == 0) {
-				counter++;
-				p.Pause_Menu(mIO);
-			}
+			Pause_menu p;
+			p.Pause_Menu(mIO, mBoard, mGame);
+
+			break;
+		}
+		case (SDLK_r):
+		{
+			//resets board
+			mBoard.ResetBoard();
+			//Creates new pieces/piece queue
+			mGame.CreateNewPiece();
 
 			break;
 		}
@@ -141,6 +148,8 @@ void Facade::facade()
 			mTime1 = SDL_GetTicks();
 		}
 	}
+
+	
 }
 
 
