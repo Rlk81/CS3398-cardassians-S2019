@@ -18,6 +18,12 @@ void Start_menu::Start_Menu(IO startIO) {
 	//Set up screen
 	start_screen = SDL_SetVideoMode(640, 480, 32, SDL_SWSURFACE);
 
+
+
+	
+	
+
+	
 	//Load image
 	start_background = SDL_LoadBMP("Start_menu_background.bmp");
 
@@ -72,6 +78,7 @@ void Start_menu::Start_Menu(IO startIO) {
 		if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT) &(Mx > 275) && (Mx < 375)
 			& (My < 258)& (My > 200)) {
 			SDL_Delay(100);
+
 			break;
 		}
 		//if mouse not over button, turns back to original
@@ -95,6 +102,7 @@ void Start_menu::Start_Menu(IO startIO) {
                 if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT) &(Mx > 265) && (Mx < 400) & (My < 358) & (My > 300)) {
                         Options_menu o;
                         o.Options_Menu(startIO);
+						this->diff_index = o.get_difficulty_index();
                         break;
                 }
 
@@ -111,4 +119,8 @@ void Start_menu::Start_Menu(IO startIO) {
 
 	SDL_FreeSurface(start_background);
 
+}
+
+int Start_menu::get_index() {
+	return this->diff_index;
 }

@@ -20,6 +20,7 @@
 #include "Start_menu.h"
 #include "Pause_menu.h"
 #include "Options_menu.h"
+#include "Difficulty.h"
 
 #ifndef LINUX
 #include <windows.h>
@@ -58,8 +59,11 @@ int main()
 
 	//Creates start menu
 	Start_menu s;
-	
 	s.Start_Menu(mIO);
+	
+	
+	//Create difficulty with
+	Difficulty diff(s.get_index());
 	
 	// ----- Main Loop -----
 
@@ -80,7 +84,7 @@ int main()
 			case (SDLK_RIGHT): 
 			case (SDLK_d):
 			{
-				if (mBoard.IsPossibleMovement (mGame.mPosX + 1, mGame.mPosY, mGame.mPiece, mGame.mRotation))
+				if (mBoard.IsPossibleMovement(mGame.mPosX + 1, mGame.mPosY, mGame.mPiece, mGame.mRotation))
 					mGame.mPosX++;
 					break;
 			}
@@ -156,8 +160,12 @@ int main()
 		}
 
 		// ----- Vertical movement -----
-
+		unsigned long WAIT_TIME = 700;
+		WAIT_TIME = diff.get_speed();
 		unsigned long mTime2 = SDL_GetTicks();
+
+		
+
 
 		if ((mTime2 - mTime1) > WAIT_TIME)
 		{
