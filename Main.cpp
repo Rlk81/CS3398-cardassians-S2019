@@ -147,6 +147,13 @@ int main()
 
 				break;
 			}
+			case (SDLK_h):
+			{
+				mGame.hold();
+
+				break;
+
+			}
 			case (SDLK_r):
 			{
 				//resets board

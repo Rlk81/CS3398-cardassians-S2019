@@ -82,6 +82,38 @@ void Game::InitGame()
 		pieceQueue[i].posY = 5 * i;
 	}
 
+	hPosX = -10;
+	hPosY = 5;				// Position of the piece that is falling down
+	hPiece = 0;
+	hRotation = 0;
+}
+
+
+void Game::hold()
+{
+	if (empty)
+	{
+		hPiece = mPiece;
+		hRotation = mRotation;
+		empty = false;
+		swapped = true;
+	}
+	else if (!swapped)
+	{
+
+		int tPiece = mPiece;
+		int tRot = mRotation;
+
+		mRotation = hRotation;
+		mPiece = hPiece;
+
+		hPiece = tPiece;
+		hRotation = tRot;
+		//mRotation = 0;
+		mPosX = (BOARD_WIDTH / 2) + mPieces->GetXInitialPosition(mPiece, mRotation);
+		mPosY = mPieces->GetYInitialPosition(mPiece, mRotation);
+		swapped = true;
+	}
 }
 
 
@@ -92,6 +124,9 @@ Create a random piece
 */
 void Game::CreateNewPiece()
 {
+	if (swapped)
+	   swapped = false;
+
 	// The new piece
 	mPiece = pieceQueue[0].piecetype;
 	mRotation = pieceQueue[0].pieceRotation;
@@ -215,4 +250,6 @@ void Game::DrawScene ()
 		DrawPiece(pieceQueue[i].posX, pieceQueue[i].posY, pieceQueue[i].piecetype, pieceQueue[i].pieceRotation);
 	}
 
+	if (!empty)
+		DrawPiece(hPosX, hPosY, hPiece, hRotation);
 }

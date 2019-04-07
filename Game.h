@@ -53,7 +53,7 @@ public:
 
 	void DrawScene ();
 	void CreateNewPiece ();
-
+	void hold();
 	int mPosX, mPosY;				// Position of the piece that is falling down
 	int mPiece, mRotation;			// Kind and rotation the piece that is falling down
 	struct Piece pieceQueue[4]; 
@@ -62,6 +62,13 @@ private:
 	int mScreenHeight;				// Screen height in pixels
 	int mNextPosX, mNextPosY;		// Position of the next piece
 	int mNextPiece, mNextRotation;	// Kind and rotation of the next piece
+
+	int hPosX;
+	int	hPosY;				// Position of the piece that is falling down
+	int hPiece;
+	int	hRotation;
+	bool empty = true;
+	bool swapped = false;
 
 	Board *mBoard;
 	Pieces *mPieces;
