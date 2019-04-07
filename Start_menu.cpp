@@ -45,7 +45,7 @@ void Start_menu::Start_Menu(IO startIO) {
 	srcrect.y = 0;
 	start_rect.x = 550 / 2;
 	start_rect.y = 400 / 2;
-	options_rect.x = 530 / 2;
+	options_rect.x = 550 / 2;
 	options_rect.y = 600 / 2;
 
 
