@@ -134,8 +134,8 @@ int main()
 			}
 			case (SDLK_c):
 			{
-				if (mBoard.IsPossibleMovement (mGame.mPosX, mGame.mPosY, mGame.mPiece, (mGame.mRotation - 1) % 4))
-					mGame.mRotation = (mGame.mRotation - 1) % 4;
+				if (mBoard.IsPossibleMovement (mGame.mPosX, mGame.mPosY, mGame.mPiece, (mGame.mRotation + 3) % 4))
+					mGame.mRotation = (mGame.mRotation + 3) % 4;
 
 				break;
 			}
