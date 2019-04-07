@@ -1,8 +1,1 @@
-﻿  Main.cpp
-     Creating library C:\Users\ralph\Documents\GitHub\CS3398-cardassians-S2019\Release\tetris_tutorial_sdl.lib and object C:\Users\ralph\Documents\GitHub\CS3398-cardassians-S2019\Release\tetris_tutorial_sdl.exp
-  Generating code
-  3 of 36 functions ( 8.3%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
-  Finished generating code
-  tetris_tutorial_sdl.vcxproj -> C:\Users\ralph\Documents\GitHub\CS3398-cardassians-S2019\Release\tetris_tutorial_sdl.exe
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.Cpp.Platform.targets(57,5): error MSB8020: The build tools for v141 (Platform Toolset = 'v141') cannot be found. To build using the v141 build tools, please install v141 build tools.  Alternatively, you may upgrade to the current Visual Studio tools by selecting the Project menu or right-click the solution, and then selecting "Retarget solution".

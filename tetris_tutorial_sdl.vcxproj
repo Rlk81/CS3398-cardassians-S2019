@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -95,16 +95,24 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Board.cpp" />
+    <ClCompile Include="Difficulty.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="IO.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Options_menu.cpp" />
+    <ClCompile Include="Pause_menu.cpp" />
     <ClCompile Include="Pieces.cpp" />
+    <ClCompile Include="Start_menu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Board.h" />
+    <ClInclude Include="Difficulty.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="IO.h" />
+    <ClInclude Include="Options_menu.h" />
+    <ClInclude Include="Pause_menu.h" />
     <ClInclude Include="Pieces.h" />
+    <ClInclude Include="Start_menu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
