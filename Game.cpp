@@ -166,8 +166,9 @@ Draw the two lines that delimit the board
 void Game::DrawBoard ()
 {
 	// Calculate the limits of the board in pixels	
+	int line = BOARD_POSITION;
 	int mX1 = BOARD_POSITION - (BLOCK_SIZE * (BOARD_WIDTH / 2)) - 1;
-	int mX2 = BOARD_POSITION + (BLOCK_SIZE * (BOARD_WIDTH / 2));
+	double mX2 = BOARD_POSITION + (BLOCK_SIZE * (BOARD_WIDTH / 2));
 	int mY = mScreenHeight - (BLOCK_SIZE * BOARD_HEIGHT);
 	
 	// Check that the vertical margin is not to small
@@ -176,6 +177,18 @@ void Game::DrawBoard ()
 	// Rectangles that delimits the board
 	mIO->DrawRectangle (mX1 - BOARD_LINE_WIDTH, mY, mX1, mScreenHeight - 1, BLUE);
 	mIO->DrawRectangle (mX2, mY, mX2 + BOARD_LINE_WIDTH, mScreenHeight - 1, BLUE);
+
+	for (mX2; mX2 > BOARD_WIDTH; mX2 -= 16.1) {
+		if (mX2 >= mX1)
+		mIO->DrawVLine(mX2, mY, mScreenHeight, BLUE);
+
+	}
+	//for (line; line > mX2; line -= 17) {
+	//	mIO->DrawVLine(-line, mY, mScreenHeight, BLUE);
+
+	//}
+
+	
 	
 	// Check that the horizontal margin is not to small
 	//assert (mX1 > MIN_HORIZONTAL_MARGIN);
