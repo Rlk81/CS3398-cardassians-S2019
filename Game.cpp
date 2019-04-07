@@ -82,10 +82,15 @@ void Game::InitGame()
 		pieceQueue[i].posY = 5 * i;
 	}
 
+	// Set the Hold for new game
+	empty = true;
+	swapped = false;
+
 	hPosX = -10;
 	hPosY = 0;				// Position of the piece that is falling down
 	hPiece = 0;
 	hRotation = 0;
+
 }
 
 
@@ -140,18 +145,11 @@ void Game::CreateNewPiece()
 	{
 		pieceQueue[i].piecetype = pieceQueue[i + 1].piecetype;
 		pieceQueue[i].pieceRotation = pieceQueue[i + 1].pieceRotation;
-		//pieceQueue[i].posX = pieceQueue[i + 1].posX;
-		//pieceQueue[i].posY = pieceQueue[i + 1].posY;
-
-	
 	}
 
 	// Random next piece
 	pieceQueue[3].piecetype = GetRand(0, 6);
-	pieceQueue[3].pieceRotation = GetRand(0, 3);
-	//pieceQueue[3].posX = BOARD_WIDTH + 5;
-	//pieceQueue[3].posY = 5 * 4;
-	
+	pieceQueue[3].pieceRotation = GetRand(0, 3);	
 }
 
 
@@ -208,8 +206,10 @@ Draw the two lines that delimit the board
 void Game::DrawBoard ()
 {
 	// Calculate the limits of the board in pixels	
+	int line = BOARD_POSITION;
 	int mX1 = BOARD_POSITION - (BLOCK_SIZE * (BOARD_WIDTH / 2)) - 1;
-	int mX2 = BOARD_POSITION + (BLOCK_SIZE * (BOARD_WIDTH / 2));
+	//int mX2 = BOARD_POSITION + (BLOCK_SIZE * (BOARD_WIDTH / 2));
+	double mX2 = BOARD_POSITION + (BLOCK_SIZE * (BOARD_WIDTH / 2));
 	int mY = mScreenHeight - (BLOCK_SIZE * BOARD_HEIGHT);
 	
 	// Check that the vertical margin is not to small
@@ -218,6 +218,10 @@ void Game::DrawBoard ()
 	// Rectangles that delimits the board
 	mIO->DrawRectangle (mX1 - BOARD_LINE_WIDTH, mY, mX1, mScreenHeight - 1, BLUE);
 	mIO->DrawRectangle (mX2, mY, mX2 + BOARD_LINE_WIDTH, mScreenHeight - 1, BLUE);
+
+	for (mX2; mX2 > BOARD_WIDTH; mX2 -= 16.1) 
+		if (mX2 >= mX1)
+			mIO->DrawVLine(mX2, mY, mScreenHeight, BLUE);
 	
 	// Check that the horizontal margin is not to small
 	//assert (mX1 > MIN_HORIZONTAL_MARGIN);

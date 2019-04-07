@@ -57,6 +57,7 @@ public:
 	int mPosX, mPosY;				// Position of the piece that is falling down
 	int mPiece, mRotation;			// Kind and rotation the piece that is falling down
 	struct Piece pieceQueue[4]; 
+	void InitGame();
 private:
 
 	int mScreenHeight;				// Screen height in pixels
@@ -67,15 +68,14 @@ private:
 	int	hPosY;				// Position of the piece that is falling down
 	int hPiece;
 	int	hRotation;
-	bool empty = true;
-	bool swapped = false;
+	bool empty;
+	bool swapped;
 
 	Board *mBoard;
 	Pieces *mPieces;
 	IO *mIO;
 
 	int GetRand (int pA, int pB);
-	void InitGame();
 	void DrawPiece (int pX, int pY, int pPiece, int pRotation);
 	void DrawBoard ();
 };

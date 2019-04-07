@@ -50,6 +50,10 @@ void IO::ClearScreen()
 	boxColor (mScreen, 0, 0, mScreen->w - 1, mScreen->h - 1, mColors[BLACK]);
 }
 
+void IO::DrawVLine(int pX1, int pY1, int pY2, enum color pC) {
+	vlineColor(mScreen, pX1, pY1, pY2 - 1, mColors[pC]);
+}
+
 
 /* 
 ======================================									

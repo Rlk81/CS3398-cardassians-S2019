@@ -127,7 +127,7 @@ void Pause_menu::Pause_Menu(IO startIO, Board &b, Game &g) {
 	if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT) &(Mx > 275) && (Mx < 375)
 		& (My < 458)& (My > 400)) {
 		SDL_Delay(100);
-		Return_to_Start(startIO);
+		Return_to_Start(startIO, b,  g);
 		break;
 	}
 	//if mouse not over button, turns back to original
@@ -146,9 +146,12 @@ void Pause_menu::Pause_Menu(IO startIO, Board &b, Game &g) {
 
 }
 
-void Pause_menu::Return_to_Start(IO mIO) {
+void Pause_menu::Return_to_Start(IO mIO, Board &b, Game &g) {
 	Start_menu s;
 	s.Start_Menu(mIO);
+    g.InitGame();
+	b.ResetBoard();
+	g.CreateNewPiece();
 }
 
 

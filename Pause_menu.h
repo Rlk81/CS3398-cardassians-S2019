@@ -16,7 +16,8 @@ class Pause_menu{
 public:
 	
 	void Pause_Menu(IO startIO, Board &b, Game &g);
-	void Return_to_Start(IO mIO);
+	void Return_to_Start(IO mIO, Board & b, Game & g);
+	
 	void Reset_Option(Board &b, Game &g);	
 };
 

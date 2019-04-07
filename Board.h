@@ -23,6 +23,7 @@
 // ------ Includes -----
 
 #include "Pieces.h"
+#include "IO.h"
 
 // ------ Defines -----
 
