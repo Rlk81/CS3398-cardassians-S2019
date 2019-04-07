@@ -65,7 +65,8 @@ void Start_menu::Start_Menu(IO startIO) {
 
 	//Update Screen
 	SDL_Flip(start_screen);
-	while (!startIO.IsKeyDown(SDLK_s)) {
+	while (!startIO.IsKeyDown(SDLK_ESCAPE)) {
+		
 
 		//if over start button, button turns white
 		SDL_GetMouseState(&Mx, &My);
