@@ -35,8 +35,8 @@
 
 // ------ Enums -----
 
-enum color {BLACK, RED, GREEN, BLUE, CYAN, MAGENTA, YELLOW, WHITE, COLOR_MAX}; // Colors
-
+enum color                   {BLACK,      RED,        GREEN,      BLUE,       CYAN,       MAGENTA,    YELLOW,     WHITE,      NAVY,       MAX}; // Colors
+static Uint32 mColors[MAX] = {0x000000ff, 0xD23017ff, 0x0CFF46ff, 0x0000CFff, 0x00ffffff, 0xff00ffff, 0xffff00ff, 0xffffffff, 0x001c22ff };
 
 // --------------------------------------------------------------------------------
 //									 IO

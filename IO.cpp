@@ -24,10 +24,6 @@
 #include "IO.h"
 
 static SDL_Surface *mScreen;										// Screen
-static Uint32 mColors [COLOR_MAX] = {0x000000ff,					// Colors
-                               0xff0000ff, 0x00ff00ff, 0x0000ffff,
-                               0x00ffffff, 0xff00ffff, 0xffff00ff,
-                               0xffffffff};
 
 /* 
 ======================================									
@@ -47,7 +43,7 @@ Clear the screen to black
 */
 void IO::ClearScreen() 
 {
-	boxColor (mScreen, 0, 0, mScreen->w - 1, mScreen->h - 1, mColors[BLACK]);
+	boxColor (mScreen, 0, 0, mScreen->w - 1, mScreen->h - 1, mColors[NAVY]);
 }
 
 void IO::DrawVLine(int pX1, int pY1, int pY2, enum color pC) {
