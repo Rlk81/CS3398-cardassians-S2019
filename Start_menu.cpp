@@ -92,7 +92,7 @@ void Start_menu::Start_Menu(IO startIO) {
 
 		//if over options button, button turns white
                 SDL_GetMouseState(&Mx, &My); 
-                if ((Mx > 265) && (Mx < 400))
+                if ((Mx > 275) && (Mx < 375))
                         if ((My < 358)& (My > 300)) {  
                                 SDL_Flip(start_screen);
                                 SDL_BlitSurface(options_button_mouse_over, NULL, start_screen, &options_rect);
@@ -110,7 +110,7 @@ void Start_menu::Start_Menu(IO startIO) {
 		//if mouse not over button, turns back to original
                 SDL_GetMouseState(&Mx, &My);
 
-                if ((Mx < 265) || (Mx > 400) || (My > 358) || (My < 300)) {
+                if ((Mx < 275) || (Mx > 375) || (My > 358) || (My < 300)) {
                         SDL_Flip(start_screen);
                         SDL_BlitSurface(options_button, NULL, start_screen, &options_rect);
                 }

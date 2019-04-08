@@ -7,16 +7,16 @@ void Pause_menu::Pause_Menu(IO startIO, Board &b, Game &g) {
 	SDL_Surface* start_background = SDL_LoadBMP("Start_menu_background.bmp");
 	SDL_Surface* start_screen = SDL_SetVideoMode(640, 480, 32, SDL_SWSURFACE);
 
-	SDL_Surface* start_button = SDL_LoadBMP("Pause_button.bmp");
-	SDL_Surface* start_button_mouse_over = SDL_LoadBMP("Pause_mouseover.bmp");
+	SDL_Surface* start_button = SDL_LoadBMP("Resume_button.bmp");
+	SDL_Surface* start_button_mouse_over = SDL_LoadBMP("Resume_button_mouseover.bmp");
 
 	SDL_Surface* options_button = NULL;
 
 	SDL_Surface* reset_button = SDL_LoadBMP("Reset_button.bmp");
 	SDL_Surface* reset_button_mouseover = SDL_LoadBMP("Reset_button_mouseover.bmp");
 
-	SDL_Surface* return_to_start = SDL_LoadBMP("Pause_button.bmp");
-	SDL_Surface* return_to_start_mouseover = SDL_LoadBMP("Reset_button_mouseover.bmp");
+	SDL_Surface* return_to_start = SDL_LoadBMP("MainMenu_button.bmp");
+	SDL_Surface* return_to_start_mouseover = SDL_LoadBMP("MainMenu_button_mouseover.bmp");
 
 
 	//Start SDL
@@ -41,7 +41,7 @@ void Pause_menu::Pause_Menu(IO startIO, Board &b, Game &g) {
 	options_rect.y = 600 / 2;  //300
 
 	SDL_Rect reset_rect;
-	reset_rect.x = 550 / 2;    //275
+	reset_rect.x = 480 / 2;    //240
 	reset_rect.y = 600 / 2;    //300
 
 	SDL_Rect return_to_start_rect;
@@ -121,7 +121,7 @@ void Pause_menu::Pause_Menu(IO startIO, Board &b, Game &g) {
 	if ((Mx > 275) && (Mx < 375))
 		if ((My < 458)& (My > 400)) {
 			SDL_Flip(start_screen);
-			SDL_BlitSurface(reset_button_mouseover, NULL, start_screen, &return_to_start_rect);
+			SDL_BlitSurface(return_to_start_mouseover, NULL, start_screen, &return_to_start_rect);
 		}
 	//Click reset button	
 	if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT) &(Mx > 275) && (Mx < 375)
