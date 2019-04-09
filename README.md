@@ -57,7 +57,7 @@ Down, S | Move piece down
   * Added alternate movement keys
 
  
-## Project Status / Next Steps
+## Project Status After Sprint 1/ Next Steps
 Status of project: functional  
 Current additional features: Start menu, pause menu, options menu, extended piece queue, piece rotation in multiple directions.
 * Ralph
@@ -69,3 +69,15 @@ Current additional features: Start menu, pause menu, options menu, extended piec
 * Isaac
   * With the basic menus operational, I intend to move on to finding a way to track game scores and statistics. With access to a game score, I will be able to implement a change in color and/or speed at score thresholds to indicate moving up to a new level.
   
+ ## Project Status After Sprint 2 / Next Steps
+ Status of project: functional and looking better than ever!
+ Current additional features: Revamped UI, added difficulty settings, Lines to predict block placement, Hold Piece, revamped internal code.
+* Ralph
+  * I did follow through with my previous ambitions from the last sprint as i added lines to help predict where blocks would land inside of game.cpp and helped implenement a basic facade pattern inside of facade.cpp. 
+  * For the next sprint I would like the ability to change the color of blocks during the game.  
+* Brian
+  * 
+* Fred
+  *
+* Isaac
+  *
