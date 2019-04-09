@@ -73,7 +73,7 @@ Current additional features: Start menu, pause menu, options menu, extended piec
  Status of project: functional and looking better than ever!
  Current additional features: Revamped UI, added difficulty settings, Lines to predict block placement, Hold Piece, revamped internal code.
 * Ralph
-  * I did follow through with my previous ambitions from the last sprint as i added lines to help predict where blocks would land and helped implenement a basic facade pattern. 
+  * I did follow through with my previous ambitions from the last sprint as i added lines to help predict where blocks would land inside of game.cpp and helped implenement a basic facade pattern inside of facade.cpp. 
   * For the next sprint I would like the ability to change the color of blocks during the game.  
 * Brian
   * 
