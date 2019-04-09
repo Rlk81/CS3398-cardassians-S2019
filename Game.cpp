@@ -2,14 +2,14 @@
 /* File: Game.cpp
 /* Desc: General class for the game
 /*
-/* gametuto.com - Javier López López (javilop.com)
+/* gametuto.com - Javier LÃ³pez LÃ³pez (javilop.com)
 /*
 /*****************************************************************************************
 /*
 /* Creative Commons - Attribution 3.0 Unported
 /* You are free:
-/*	to Share — to copy, distribute and transmit the work
-/*	to Remix — to adapt the work
+/*	to Share â€” to copy, distribute and transmit the work
+/*	to Remix â€” to adapt the work
 /*
 /* Under the following conditions:
 /* Attribution. You must attribute the work in the manner specified by the author or licensor 
@@ -219,6 +219,7 @@ void Game::DrawBoard ()
 	mIO->DrawRectangle (mX1 - BOARD_LINE_WIDTH, mY, mX1, mScreenHeight - 1, BLUE);
 	mIO->DrawRectangle (mX2, mY, mX2 + BOARD_LINE_WIDTH, mScreenHeight - 1, BLUE);
 
+	//Draws veritical Lines across the board
 	for (mX2; mX2 > BOARD_WIDTH; mX2 -= 16.1) 
 		if (mX2 >= mX1)
 			mIO->DrawVLine(mX2, mY, mScreenHeight, BLUE);
