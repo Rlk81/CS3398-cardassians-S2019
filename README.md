@@ -76,9 +76,9 @@ Current additional features: Start menu, pause menu, options menu, extended piec
   * I did follow through with my previous ambitions from the last sprint as i added lines to help predict where blocks would land inside of game.cpp and helped implenement a basic facade pattern. 
   * For the next sprint I would like the ability to change the color of blocks during the game.  
 * Brian
-  * For this sprint I created the ability to reset the game both in game by pressing "r" and from the pause menu which I added a button for.
-  * I added a difficulty class that currently changes the speed at which the blocks drop based on the difficulty selectd from the options menu.
-  * For the next sprint, I would like to make improvements to the difficulty settings like allowing the difficulty to be changed during a game and have the difficulty level effect the likelyhood of specific blocks being generated. 
+  * For this sprint I created the ability to reset the game both in game by pressing "r" (in main) and from the pause menu (in pause menu class) which I added a button for. 
+  * I added a difficulty class that currently changes the speed at which the blocks drop based on the difficulty selectd from the options menu. It currently is only able to be set before the game starts.
+  * For the next sprint, I would like to make improvements to the difficulty settings like allowing the difficulty to be changed during a game and have the difficulty level effect the likelyhood of specific blocks being generated.
 * Fred
   *
 * Isaac
