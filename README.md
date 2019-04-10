@@ -77,7 +77,7 @@ Current additional features: Start menu, pause menu, options menu, extended piec
   * For the next sprint I would like the ability to change the color of blocks during the game.  
 * Brian
   * For this sprint I created the ability to reset the game both in game by pressing "r" (in main) and from the pause menu (in pause menu class) which I added a button for. 
-  * I added a difficulty class that currently changes the speed at which the blocks drop based on the difficulty selectd from the options menu. It currently is only able to be set before the game starts.
+  * I added a difficulty class `difficulty.h` and `difficulty.cpp` that currently changes the speed at which the blocks drop based on the difficulty selected from the options menu. It currently is only able to be set before the game starts.
   * For the next sprint, I would like to make improvements to the difficulty settings like allowing the difficulty to be changed during a game and have the difficulty level effect the likelyhood of specific blocks being generated.
 * Fred
   *
