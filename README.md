@@ -80,7 +80,8 @@ Current additional features: Start menu, pause menu, options menu, extended piec
   * I added a difficulty class `difficulty.h` and `difficulty.cpp` that currently changes the speed at which the blocks drop based on the difficulty selected from the options menu. It currently is only able to be set before the game starts.
   * For the next sprint, I would like to make improvements to the difficulty settings like allowing the difficulty to be changed during a game and have the difficulty level effect the likelyhood of specific blocks being generated.
 * Fred
-  *
+  * I was not able to complete my tasks due to unforseen personal matters.
+  * For the next sprint, I would like to enhance some of the visual aspects of the game.
 * Isaac
   * Created all new GUI elements in Photoshop (bitmap images in the root directory).
   * Adjusted in-game colors to be more coherent (IO.h).
