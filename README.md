@@ -69,7 +69,7 @@ Current additional features: Start menu, pause menu, options menu, extended piec
 * Isaac
   * With the basic menus operational, I intend to move on to finding a way to track game scores and statistics. With access to a game score, I will be able to implement a change in color and/or speed at score thresholds to indicate moving up to a new level.
   
- ## Project Status After Sprint 2 / Next Steps
+ ## Project Status & Added Features After Sprint 2 / Next Steps
  Status of project: functional and looking better than ever!
  Current additional features: Revamped UI, added difficulty settings, Lines to predict block placement, Hold Piece, revamped internal code.
 * Ralph
