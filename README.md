@@ -81,3 +81,6 @@ Current additional features: Start menu, pause menu, options menu, extended piec
   *
 * Isaac
   *
+* John
+  * implemented the HoldPiece feature/ display of held piece.  
+  * added return to start menu in the Pause Menu.
