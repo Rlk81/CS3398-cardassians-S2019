@@ -131,8 +131,11 @@ Create a random piece
 */
 void Game::CreateNewPiece()
 {
+	if (!empty) {
+
 	if (swapped)
 	   swapped = false;
+	}
 
 	// The new piece
 	mPiece = pieceQueue[0].piecetype;
@@ -263,4 +266,11 @@ void Game::DrawScene ()
 
 	if (!empty)
 		DrawPiece(hPosX, hPosY, hPiece, hRotation);
+}
+
+
+void Game::resetHold() {
+	empty = true;
+	swapped = false;
+
 }

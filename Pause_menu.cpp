@@ -148,10 +148,10 @@ void Pause_menu::Pause_Menu(IO startIO, Board &b, Game &g) {
 
 void Pause_menu::Return_to_Start(IO mIO, Board &b, Game &g) {
 	Start_menu s;
+	//s.set_index(1);
 	s.Start_Menu(mIO);
-    g.InitGame();
-	b.ResetBoard();
-	g.CreateNewPiece();
+	Reset_Option(b, g);
+	
 }
 
 
@@ -161,5 +161,6 @@ void Pause_menu::Reset_Option(Board &b, Game &g)
 	//resets board
 	b.ResetBoard();
 	//Creates new pieces/piece queue
+	g.resetHold();
 	g.CreateNewPiece();
 }

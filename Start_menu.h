@@ -5,6 +5,7 @@
 // ------ Includes -----
 
 #include "IO.h"
+#include "Difficulty.h"
 
 
 // --------------------------------------------------------------------------------
@@ -15,6 +16,7 @@ public:
 	
 	void Start_Menu(IO startIO);
 	int get_index();
+	void set_index(int i);
 
 private:
 	//default is normal difficulty

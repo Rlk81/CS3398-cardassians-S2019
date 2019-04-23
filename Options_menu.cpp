@@ -103,6 +103,7 @@ void Options_menu::Options_Menu(IO startIO) {
                 if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT) &(Mx > 265) && (Mx < 365) & (My < 358) & (My > 300)) {
                         Start_menu s;
                         s.Start_Menu(startIO);
+						//s.set_index(difficulty_index);
                         break;
                 }
 

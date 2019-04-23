@@ -18,12 +18,6 @@ void Start_menu::Start_Menu(IO startIO) {
 	//Set up screen
 	start_screen = SDL_SetVideoMode(640, 480, 32, SDL_SWSURFACE);
 
-
-
-	
-	
-
-	
 	//Load image
 	start_background = SDL_LoadBMP("Start_menu_background.bmp");
 
@@ -59,15 +53,10 @@ void Start_menu::Start_Menu(IO startIO) {
 	int My = 0;
 	bool play1 = false;
 
-
-
-
-
 	//Update Screen
 	SDL_Flip(start_screen);
 	while (!startIO.IsKeyDown(SDLK_ESCAPE)) {
-		
-
+	
 		//if over start button, button turns white
 		SDL_GetMouseState(&Mx, &My);
 		if ((Mx > 275) && (Mx < 375))
@@ -106,7 +95,6 @@ void Start_menu::Start_Menu(IO startIO) {
 						this->diff_index = o.get_difficulty_index();
                         break;
                 }
-
 		//if mouse not over button, turns back to original
                 SDL_GetMouseState(&Mx, &My);
 
@@ -114,14 +102,15 @@ void Start_menu::Start_Menu(IO startIO) {
                         SDL_Flip(start_screen);
                         SDL_BlitSurface(options_button, NULL, start_screen, &options_rect);
                 }
-
 	}
-
-
 	SDL_FreeSurface(start_background);
-
 }
 
 int Start_menu::get_index() {
 	return this->diff_index;
+}
+
+void Start_menu::set_index(int i)
+{
+
 }
