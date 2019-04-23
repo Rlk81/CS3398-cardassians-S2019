@@ -36,7 +36,7 @@ Left, A | Move piece left
 Right, D | Move piece right
 Down, S | Move piece down
 
-## Individual Features / Accomplishments
+## Individual Features / Accomplishments Sprint 1
 * Ralph Kelley
   * I created the pause menu and all pause menu related items and implemented them into the code. The pause menu is activated when you press the "P" key which pops up a menu in which you can pause and unpause the game.  
   * `Pause_menu.h`, `Pause_menu.cpp`, added functionallity of pressing "p" into main under the input section
@@ -57,7 +57,7 @@ Down, S | Move piece down
   * Added alternate movement keys
 
  
-## Project Status / Next Steps
+## Project Status After Sprint 1/ Next Steps
 Status of project: functional  
 Current additional features: Start menu, pause menu, options menu, extended piece queue, piece rotation in multiple directions.
 * Ralph
@@ -69,3 +69,23 @@ Current additional features: Start menu, pause menu, options menu, extended piec
 * Isaac
   * With the basic menus operational, I intend to move on to finding a way to track game scores and statistics. With access to a game score, I will be able to implement a change in color and/or speed at score thresholds to indicate moving up to a new level.
   
+ ## Project Status & Added Features After Sprint 2 / Next Steps
+ Status of project: functional and looking better than ever!
+ Current additional features: Revamped UI, added difficulty settings, Lines to predict block placement, Hold Piece, revamped internal code.
+* Ralph
+  * I did follow through with my previous ambitions from the last sprint as i added lines to help predict where blocks would land inside of game.cpp and helped implenement a basic facade pattern. 
+  * For the next sprint I would like the ability to change the color of blocks during the game.  
+* Brian
+  * For this sprint I created the ability to reset the game both in game by pressing "r" (in main) and from the pause menu (in pause menu class) which I added a button for. 
+  * I added a difficulty class `difficulty.h` and `difficulty.cpp` that currently changes the speed at which the blocks drop based on the difficulty selected from the options menu. It currently is only able to be set before the game starts.
+  * For the next sprint, I would like to make improvements to the difficulty settings like allowing the difficulty to be changed during a game and have the difficulty level effect the likelyhood of specific blocks being generated.
+* Fred
+  * I was not able to complete my tasks due to unforseen personal matters.
+  * For the next sprint, I would like to enhance some of the visual aspects of the game.
+* Isaac
+  * Created all new GUI elements in Photoshop (bitmap images in the root directory).
+  * Adjusted in-game colors to be more coherent (IO.h).
+  * For the next sprint, I will be adding the ability to keep score in a game,and have statistics tracking across games. With access to a game score, I will be able to implement a change in color and/or speed at score thresholds to indicate moving up to a new level.
+* John
+  * implemented the HoldPiece feature/ display of held piece.  
+  * added return to start menu in the Pause Menu.
