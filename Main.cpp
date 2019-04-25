@@ -26,6 +26,10 @@
 #include <windows.h>
 #endif
 
+
+
+
+
 /*
 ==================
 Main
@@ -38,70 +42,78 @@ int main()
 #endif
 // int main ()  // Linux users should use this line instead the previous one
 {
-	// ----- Vars -----
 
-	// Class for drawing staff, it uses SDL for the rendering. Change the methods of this class
-	// in order to use a different renderer
+
 	IO mIO;
-	int mScreenHeight = mIO.GetScreenHeight();
-
-	// Pieces
-	Pieces mPieces;
-
-	// Board
-	Board mBoard (&mPieces, mScreenHeight);
-
-	// Game
-	Game mGame (&mBoard, &mPieces, &mIO, mScreenHeight);
-
-	// Get the actual clock milliseconds (SDL)
-	unsigned long mTime1 = SDL_GetTicks();
-
-	//Creates start menu
-	Start_menu s;
-	s.Start_Menu(mIO);
 	
-	
-	//Create difficulty with
-	Difficulty diff(s.get_index());
-	
+//	bool playing = true;
 	// ----- Main Loop -----
 
 	while (!mIO.IsKeyDown (SDLK_ESCAPE))
 	{
-		// ----- Draw -----
+		
+		int mScreenHeight = mIO.GetScreenHeight();
 
-		mIO.ClearScreen (); 		// Clear screen
-		mGame.DrawScene ();			// Draw staff
-		mIO.UpdateScreen ();		// Put the graphic context in the screen
+		// Pieces
+		Pieces mPieces;
 
-		// ----- Input -----
+		// Board
+		Board mBoard(&mPieces, mScreenHeight);
 
-		int mKey = mIO.Pollkey();
+		// Game
+		Game mGame(&mBoard, &mPieces, &mIO, mScreenHeight);
 
-		switch (mKey)
-		{
-			case (SDLK_RIGHT): 
+		// Get the actual clock milliseconds (SDL)
+		unsigned long mTime1 = SDL_GetTicks();
+
+		//Create difficulty 
+		Difficulty diff(1);
+
+		//Creates start menu
+		Start_menu s;
+		s.Start_Menu(mIO, diff);
+
+
+
+		bool playing = true;
+
+
+		while (playing) {
+			//while(!mboard.isGameOver())
+
+			// ----- Draw -----
+
+			mIO.ClearScreen(); 		// Clear screen
+			mGame.DrawScene();			// Draw staff
+			mIO.UpdateScreen();		// Put the graphic context in the screen
+
+			// ----- Input -----
+
+			int mKey = mIO.Pollkey();
+
+			switch (mKey)
+			{
+			case (SDLK_RIGHT):
 			case (SDLK_d):
 			{
 				if (mBoard.IsPossibleMovement(mGame.mPosX + 1, mGame.mPosY, mGame.mPiece, mGame.mRotation))
 					mGame.mPosX++;
-					break;
+				break;
 			}
 
-			case (SDLK_LEFT): 
+			case (SDLK_LEFT):
 			case (SDLK_a):
 			{
-				if (mBoard.IsPossibleMovement (mGame.mPosX - 1, mGame.mPosY, mGame.mPiece, mGame.mRotation))
-					mGame.mPosX--;	
+				if (mBoard.IsPossibleMovement(mGame.mPosX - 1, mGame.mPosY, mGame.mPiece, mGame.mRotation))
+					mGame.mPosX--;
 				break;
 			}
 
 			case (SDLK_DOWN):
 			case (SDLK_s):
 			{
-				if (mBoard.IsPossibleMovement (mGame.mPosX, mGame.mPosY + 1, mGame.mPiece, mGame.mRotation))
-					mGame.mPosY++;	
+				if (mBoard.IsPossibleMovement(mGame.mPosX, mGame.mPosY + 1, mGame.mPiece, mGame.mRotation))
+					mGame.mPosY++;
 				break;
 			}
 
@@ -109,86 +121,110 @@ int main()
 			{
 				// Check collision from up to down
 				while (mBoard.IsPossibleMovement(mGame.mPosX, mGame.mPosY, mGame.mPiece, mGame.mRotation)) { mGame.mPosY++; }
-	
-				mBoard.StorePiece (mGame.mPosX, mGame.mPosY - 1, mGame.mPiece, mGame.mRotation);
 
-				mBoard.DeletePossibleLines ();
+				mBoard.StorePiece(mGame.mPosX, mGame.mPosY - 1, mGame.mPiece, mGame.mRotation);
+
+				mBoard.DeletePossibleLines();
 
 				if (mBoard.IsGameOver())
 				{
-					mIO.Getkey();
-					exit(0);
+					playing = false;
+					//mIO.Getkey();
+					s.Start_Menu(mIO,diff);
+					mBoard.ResetBoard();
+					mGame.resetHold();
+					break;
+					//Creates new pieces/piece queue
+					//mGame.CreateNewPiece();
+					//exit(0);
 				}
 
-				mGame.CreateNewPiece();
+				mGame.CreateNewPiece(diff);
 
 				break;
 			}
 
 			case (SDLK_z):
 			{
-				if (mBoard.IsPossibleMovement (mGame.mPosX, mGame.mPosY, mGame.mPiece, (mGame.mRotation + 1) % 4))
+				if (mBoard.IsPossibleMovement(mGame.mPosX, mGame.mPosY, mGame.mPiece, (mGame.mRotation + 1) % 4))
 					mGame.mRotation = (mGame.mRotation + 1) % 4;
 
 				break;
 			}
 			case (SDLK_c):
 			{
-				if (mBoard.IsPossibleMovement (mGame.mPosX, mGame.mPosY, mGame.mPiece, (mGame.mRotation - 1) % 4))
-					mGame.mRotation = (mGame.mRotation - 1) % 4;
+				if (mBoard.IsPossibleMovement(mGame.mPosX, mGame.mPosY, mGame.mPiece, (mGame.mRotation + 3) % 4))
+					mGame.mRotation = (mGame.mRotation + 3) % 4;
 
 				break;
 			}
 			case (SDLK_p):
 			{
-				
+
 				Pause_menu p;
-				p.Pause_Menu(mIO, mBoard,  mGame);
+				p.Pause_Menu(mIO, mBoard, mGame, diff);
 
 				break;
+			}
+			case (SDLK_h):
+			{
+				mGame.hold(diff);
+
+				break;
+
 			}
 			case (SDLK_r):
 			{
 				//resets board
 				mBoard.ResetBoard();
+				mGame.resetHold();
 				//Creates new pieces/piece queue
-				mGame.CreateNewPiece();
+				mGame.CreateNewPiece(diff);
 
 				break;
-			}				
-
-		}
-
-		// ----- Vertical movement -----
-		unsigned long WAIT_TIME = 700;
-		WAIT_TIME = diff.get_speed();
-		unsigned long mTime2 = SDL_GetTicks();
-
-		
-
-
-		if ((mTime2 - mTime1) > WAIT_TIME)
-		{
-			if (mBoard.IsPossibleMovement (mGame.mPosX, mGame.mPosY + 1, mGame.mPiece, mGame.mRotation))
-			{
-				mGame.mPosY++;
 			}
-			else
+
+			}
+
+			// ----- Vertical movement -----
+			unsigned long WAIT_TIME = 700;
+			WAIT_TIME = diff.get_speed();
+			unsigned long mTime2 = SDL_GetTicks();
+
+
+
+
+			if ((mTime2 - mTime1) > WAIT_TIME)
 			{
-				mBoard.StorePiece (mGame.mPosX, mGame.mPosY, mGame.mPiece, mGame.mRotation);
-
-				mBoard.DeletePossibleLines ();
-
-				if (mBoard.IsGameOver())
+				if (mBoard.IsPossibleMovement(mGame.mPosX, mGame.mPosY + 1, mGame.mPiece, mGame.mRotation))
 				{
-					mIO.Getkey();
-					exit(0);
+					mGame.mPosY++;
+				}
+				else
+				{
+					mBoard.StorePiece(mGame.mPosX, mGame.mPosY, mGame.mPiece, mGame.mRotation);
+
+					mBoard.DeletePossibleLines();
+
+					if (mBoard.IsGameOver())
+					{
+						playing = false;
+
+						//mIO.Getkey();
+						s.Start_Menu(mIO,diff);
+						mBoard.ResetBoard();
+						mGame.resetHold();
+						break;
+						//Creates new pieces/piece queue
+						//mGame.CreateNewPiece();
+						//exit(0);
+					}
+
+					mGame.CreateNewPiece(diff);
 				}
 
-				mGame.CreateNewPiece();
+				mTime1 = SDL_GetTicks();
 			}
-
-			mTime1 = SDL_GetTicks();
 		}
 	}
 

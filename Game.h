@@ -25,6 +25,7 @@
 #include "Board.h"
 #include "Pieces.h"
 #include "IO.h"
+#include "Difficulty.h"
 #include <time.h>
 
 
@@ -52,8 +53,9 @@ public:
 	Game			(Board *pBoard, Pieces *pPieces, IO *pIO, int pScreenHeight);
 
 	void DrawScene ();
-	void CreateNewPiece ();
-
+	void resetHold();
+	void CreateNewPiece (Difficulty &difficulty);
+	void hold(Difficulty &difficulty);
 	int mPosX, mPosY;				// Position of the piece that is falling down
 	int mPiece, mRotation;			// Kind and rotation the piece that is falling down
 	struct Piece pieceQueue[4]; 
@@ -63,12 +65,19 @@ private:
 	int mNextPosX, mNextPosY;		// Position of the next piece
 	int mNextPiece, mNextRotation;	// Kind and rotation of the next piece
 
+	int hPosX;
+	int	hPosY;				// Position of the piece that is falling down
+	int hPiece;
+	int	hRotation;
+	bool empty;
+	bool swapped;
+
 	Board *mBoard;
 	Pieces *mPieces;
 	IO *mIO;
 
-	int GetRand (int pA, int pB);
 	void InitGame();
+	int GetRand (int pA, int pB);
 	void DrawPiece (int pX, int pY, int pPiece, int pRotation);
 	void DrawBoard ();
 };

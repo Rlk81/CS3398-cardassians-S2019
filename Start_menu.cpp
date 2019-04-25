@@ -1,7 +1,7 @@
 #include "Start_menu.h"
 #include "Options_menu.h"
 
-void Start_menu::Start_Menu(IO startIO) {
+void Start_menu::Start_Menu(IO startIO, Difficulty &difficulty) {
 
 
 	//Images for menu
@@ -18,12 +18,6 @@ void Start_menu::Start_Menu(IO startIO) {
 	//Set up screen
 	start_screen = SDL_SetVideoMode(640, 480, 32, SDL_SWSURFACE);
 
-
-
-	
-	
-
-	
 	//Load image
 	start_background = SDL_LoadBMP("Start_menu_background.bmp");
 
@@ -45,7 +39,7 @@ void Start_menu::Start_Menu(IO startIO) {
 	srcrect.y = 0;
 	start_rect.x = 550 / 2;
 	start_rect.y = 400 / 2;
-	options_rect.x = 530 / 2;
+	options_rect.x = 550 / 2;
 	options_rect.y = 600 / 2;
 
 
@@ -59,14 +53,10 @@ void Start_menu::Start_Menu(IO startIO) {
 	int My = 0;
 	bool play1 = false;
 
-
-
-
-
 	//Update Screen
 	SDL_Flip(start_screen);
-	while (!startIO.IsKeyDown(SDLK_s)) {
-
+	while (!startIO.IsKeyDown(SDLK_ESCAPE)) {
+	
 		//if over start button, button turns white
 		SDL_GetMouseState(&Mx, &My);
 		if ((Mx > 275) && (Mx < 375))
@@ -91,7 +81,7 @@ void Start_menu::Start_Menu(IO startIO) {
 
 		//if over options button, button turns white
                 SDL_GetMouseState(&Mx, &My); 
-                if ((Mx > 265) && (Mx < 400))
+                if ((Mx > 275) && (Mx < 375))
                         if ((My < 358)& (My > 300)) {  
                                 SDL_Flip(start_screen);
                                 SDL_BlitSurface(options_button_mouse_over, NULL, start_screen, &options_rect);
@@ -101,26 +91,26 @@ void Start_menu::Start_Menu(IO startIO) {
 		// Creates new options menu- there's gotta be a better way to do this
                 if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT) &(Mx > 265) && (Mx < 400) & (My < 358) & (My > 300)) {
                         Options_menu o;
-                        o.Options_Menu(startIO);
+                        o.Options_Menu(startIO, difficulty);
 						this->diff_index = o.get_difficulty_index();
                         break;
                 }
-
 		//if mouse not over button, turns back to original
                 SDL_GetMouseState(&Mx, &My);
 
-                if ((Mx < 265) || (Mx > 400) || (My > 358) || (My < 300)) {
+                if ((Mx < 275) || (Mx > 375) || (My > 358) || (My < 300)) {
                         SDL_Flip(start_screen);
                         SDL_BlitSurface(options_button, NULL, start_screen, &options_rect);
                 }
-
 	}
-
-
 	SDL_FreeSurface(start_background);
-
 }
 
 int Start_menu::get_index() {
 	return this->diff_index;
+}
+
+void Start_menu::set_index(int i)
+{
+
 }

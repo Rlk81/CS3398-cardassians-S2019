@@ -82,6 +82,45 @@ void Game::InitGame()
 		pieceQueue[i].posY = 5 * i;
 	}
 
+	// Set the Hold for new game
+	empty = true;
+	swapped = false;
+
+	hPosX = -10;
+	hPosY = 0;				// Position of the piece that is falling down
+	hPiece = 0;
+	hRotation = 0;
+
+}
+
+
+void Game::hold(Difficulty &difficulty)
+{
+	if (empty)
+	{
+		hPiece = mPiece;
+		hRotation = mRotation;
+		empty = false;
+		swapped = true;
+		CreateNewPiece(difficulty);
+	}
+	else if (!swapped)
+	{
+
+		int tPiece = mPiece;
+
+		int tRot = mRotation;
+
+		mRotation = hRotation;
+		mPiece = hPiece;
+
+		hPiece = tPiece;
+	    hRotation = tRot;
+		mRotation = 0;
+		mPosX = (BOARD_WIDTH / 2) + mPieces->GetXInitialPosition(mPiece, mRotation);
+		mPosY = mPieces->GetYInitialPosition(mPiece, mRotation);
+		swapped = true;
+	}
 }
 
 
@@ -90,8 +129,14 @@ void Game::InitGame()
 Create a random piece
 ====================================== 
 */
-void Game::CreateNewPiece()
+void Game::CreateNewPiece(Difficulty &difficulty)
 {
+	if (!empty) {
+
+	if (swapped)
+	   swapped = false;
+	}
+
 	// The new piece
 	mPiece = pieceQueue[0].piecetype;
 	mRotation = pieceQueue[0].pieceRotation;
@@ -104,12 +149,32 @@ void Game::CreateNewPiece()
 		pieceQueue[i].piecetype = pieceQueue[i + 1].piecetype;
 		pieceQueue[i].pieceRotation = pieceQueue[i + 1].pieceRotation;
 	}
-	
 
 	// Random next piece
-	pieceQueue[3].piecetype = GetRand(0, 6);
-	pieceQueue[3].pieceRotation = GetRand(0, 3);
-	
+	if (difficulty.get_difficulty_level() == 0) {
+		if (GetRand(0, 1) == 0 || GetRand(0,1) == 1) {
+			pieceQueue[3].piecetype = GetRand(0, 1);
+			pieceQueue[3].pieceRotation = GetRand(0, 3);
+		}
+		else {
+			pieceQueue[3].piecetype = GetRand(0, 6);
+			pieceQueue[3].pieceRotation = GetRand(0, 3);
+		}
+	}
+	else if (difficulty.get_difficulty_level() == 2) {
+		if (GetRand(0, 1) == 0) {
+			pieceQueue[3].piecetype = GetRand(2, 6);
+			pieceQueue[3].pieceRotation = GetRand(0, 3);
+		}
+		else {
+			pieceQueue[3].piecetype = GetRand(0, 6);
+			pieceQueue[3].pieceRotation = GetRand(0, 3);
+		}
+	}
+	else if (difficulty.get_difficulty_level() == 1) {
+		pieceQueue[3].piecetype = GetRand(0, 6);
+		pieceQueue[3].pieceRotation = GetRand(0, 3);
+	}
 }
 
 
@@ -166,8 +231,10 @@ Draw the two lines that delimit the board
 void Game::DrawBoard ()
 {
 	// Calculate the limits of the board in pixels	
+	int line = BOARD_POSITION;
 	int mX1 = BOARD_POSITION - (BLOCK_SIZE * (BOARD_WIDTH / 2)) - 1;
-	int mX2 = BOARD_POSITION + (BLOCK_SIZE * (BOARD_WIDTH / 2));
+	//int mX2 = BOARD_POSITION + (BLOCK_SIZE * (BOARD_WIDTH / 2));
+	double mX2 = BOARD_POSITION + (BLOCK_SIZE * (BOARD_WIDTH / 2));
 	int mY = mScreenHeight - (BLOCK_SIZE * BOARD_HEIGHT);
 	
 	// Check that the vertical margin is not to small
@@ -176,6 +243,10 @@ void Game::DrawBoard ()
 	// Rectangles that delimits the board
 	mIO->DrawRectangle (mX1 - BOARD_LINE_WIDTH, mY, mX1, mScreenHeight - 1, BLUE);
 	mIO->DrawRectangle (mX2, mY, mX2 + BOARD_LINE_WIDTH, mScreenHeight - 1, BLUE);
+
+	for (mX2; mX2 > BOARD_WIDTH; mX2 -= 16.1) 
+		if (mX2 >= mX1)
+			mIO->DrawVLine(mX2, mY, mScreenHeight, BLUE);
 	
 	// Check that the horizontal margin is not to small
 	//assert (mX1 > MIN_HORIZONTAL_MARGIN);
@@ -214,5 +285,14 @@ void Game::DrawScene ()
 	{
 		DrawPiece(pieceQueue[i].posX, pieceQueue[i].posY, pieceQueue[i].piecetype, pieceQueue[i].pieceRotation);
 	}
+
+	if (!empty)
+		DrawPiece(hPosX, hPosY, hPiece, hRotation);
+}
+
+
+void Game::resetHold() {
+	empty = true;
+	swapped = false;
 
 }

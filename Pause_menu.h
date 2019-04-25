@@ -7,6 +7,7 @@
 #include "IO.h"
 #include "Board.h"
 #include "Game.h"
+#include "Start_menu.h"
 
 // --------------------------------------------------------------------------------
 //									 Start Menu
@@ -14,8 +15,10 @@
 class Pause_menu{
 public:
 	
-	void Pause_Menu(IO startIO, Board &b, Game &g);
-	void Reset_Option(Board &b, Game &g);	
+	void Pause_Menu(IO startIO, Board &b, Game &g, Difficulty &difficulty);
+	void Return_to_Start(IO mIO, Board & b, Game & g, Difficulty &difficulty);
+	
+	void Reset_Option(Board &b, Game &g, Difficulty &difficulty);	
 };
 
 #endif // _PAUSE_MENU_
