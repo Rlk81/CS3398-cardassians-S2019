@@ -66,13 +66,14 @@ int main()
 		// Get the actual clock milliseconds (SDL)
 		unsigned long mTime1 = SDL_GetTicks();
 
+		//Create difficulty 
+		Difficulty diff(1);
+
 		//Creates start menu
 		Start_menu s;
-		s.Start_Menu(mIO);
+		s.Start_Menu(mIO, diff);
 
 
-		//Create difficulty with
-		Difficulty diff(s.get_index());
 
 		bool playing = true;
 
@@ -129,7 +130,7 @@ int main()
 				{
 					playing = false;
 					//mIO.Getkey();
-					s.Start_Menu(mIO);
+					s.Start_Menu(mIO,diff);
 					mBoard.ResetBoard();
 					mGame.resetHold();
 					break;
@@ -138,7 +139,7 @@ int main()
 					//exit(0);
 				}
 
-				mGame.CreateNewPiece();
+				mGame.CreateNewPiece(diff);
 
 				break;
 			}
@@ -161,13 +162,13 @@ int main()
 			{
 
 				Pause_menu p;
-				p.Pause_Menu(mIO, mBoard, mGame);
+				p.Pause_Menu(mIO, mBoard, mGame, diff);
 
 				break;
 			}
 			case (SDLK_h):
 			{
-				mGame.hold();
+				mGame.hold(diff);
 
 				break;
 
@@ -178,7 +179,7 @@ int main()
 				mBoard.ResetBoard();
 				mGame.resetHold();
 				//Creates new pieces/piece queue
-				mGame.CreateNewPiece();
+				mGame.CreateNewPiece(diff);
 
 				break;
 			}
@@ -210,7 +211,7 @@ int main()
 						playing = false;
 
 						//mIO.Getkey();
-						s.Start_Menu(mIO);
+						s.Start_Menu(mIO,diff);
 						mBoard.ResetBoard();
 						mGame.resetHold();
 						break;
@@ -219,7 +220,7 @@ int main()
 						//exit(0);
 					}
 
-					mGame.CreateNewPiece();
+					mGame.CreateNewPiece(diff);
 				}
 
 				mTime1 = SDL_GetTicks();

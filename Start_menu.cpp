@@ -1,7 +1,7 @@
 #include "Start_menu.h"
 #include "Options_menu.h"
 
-void Start_menu::Start_Menu(IO startIO) {
+void Start_menu::Start_Menu(IO startIO, Difficulty &difficulty) {
 
 
 	//Images for menu
@@ -91,7 +91,7 @@ void Start_menu::Start_Menu(IO startIO) {
 		// Creates new options menu- there's gotta be a better way to do this
                 if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT) &(Mx > 265) && (Mx < 400) & (My < 358) & (My > 300)) {
                         Options_menu o;
-                        o.Options_Menu(startIO);
+                        o.Options_Menu(startIO, difficulty);
 						this->diff_index = o.get_difficulty_index();
                         break;
                 }

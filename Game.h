@@ -25,6 +25,7 @@
 #include "Board.h"
 #include "Pieces.h"
 #include "IO.h"
+#include "Difficulty.h"
 #include <time.h>
 
 
@@ -53,8 +54,8 @@ public:
 
 	void DrawScene ();
 	void resetHold();
-	void CreateNewPiece ();
-	void hold();
+	void CreateNewPiece (Difficulty &difficulty);
+	void hold(Difficulty &difficulty);
 	int mPosX, mPosY;				// Position of the piece that is falling down
 	int mPiece, mRotation;			// Kind and rotation the piece that is falling down
 	struct Piece pieceQueue[4]; 

@@ -1,6 +1,6 @@
 #include "Options_menu.h"
 
-void Options_menu::Options_Menu(IO startIO) {
+void Options_menu::Options_Menu(IO startIO, Difficulty &difficulty) {
 
 
 	//Images for menu
@@ -102,7 +102,7 @@ void Options_menu::Options_Menu(IO startIO) {
 		// Creates new Main menu- there's gotta be a better way to do this
                 if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT) &(Mx > 265) && (Mx < 365) & (My < 358) & (My > 300)) {
                         Start_menu s;
-                        s.Start_Menu(startIO);
+                        s.Start_Menu(startIO, difficulty);
 						//s.set_index(difficulty_index);
                         break;
                 }
@@ -129,6 +129,7 @@ void Options_menu::Options_Menu(IO startIO) {
 				// The button will stay clicked until clicked again and sets the difficulty index to 0
 				if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT) &(Mx > 130) && (Mx < 265) & (My < 258) & (My > 200)) {
 					this->difficulty_index = 0;
+					difficulty.set_difficulty_level(0);
 					if (this->hold_button_easy == false) {
 						this->hold_button_easy = true;
 						this->hold_button_normal = false;
@@ -160,6 +161,7 @@ void Options_menu::Options_Menu(IO startIO) {
 				// The button will stay clicked until clicked again and sets the difficulty index to 1
 				if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT) &(Mx > 265) && (Mx < 400) & (My < 258) & (My > 200)) {
 					this->difficulty_index = 1;
+					difficulty.set_difficulty_level(1);
 					if (this->hold_button_normal == false) {
 						this->hold_button_normal = true;
 						this->hold_button_easy = false;
@@ -192,6 +194,7 @@ void Options_menu::Options_Menu(IO startIO) {
 				// The button will stay clicked until clicked again and sets the difficulty index to 2
 				if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT) &(Mx > 425) && (Mx < 560) & (My < 258) & (My > 200)) {
 					this->difficulty_index = 2;
+					difficulty.set_difficulty_level(2);
 					if (this->hold_button_hard == false) {
 						this->hold_button_hard = true;
 						this->hold_button_easy = false;
@@ -217,3 +220,11 @@ void Options_menu::Options_Menu(IO startIO) {
 
 }
 
+//May not need these
+int Options_menu::get_difficulty_index() {
+	return this->difficulty_index;
+}
+
+int Options_menu::set_difficulty_index(int i) {
+	this->difficulty_index = i;
+}

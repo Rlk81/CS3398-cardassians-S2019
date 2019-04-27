@@ -94,7 +94,7 @@ void Game::InitGame()
 }
 
 
-void Game::hold()
+void Game::hold(Difficulty &difficulty)
 {
 	if (empty)
 	{
@@ -102,7 +102,7 @@ void Game::hold()
 		hRotation = mRotation;
 		empty = false;
 		swapped = true;
-		CreateNewPiece();
+		CreateNewPiece(difficulty);
 	}
 	else if (!swapped)
 	{
@@ -129,7 +129,7 @@ void Game::hold()
 Create a random piece
 ====================================== 
 */
-void Game::CreateNewPiece()
+void Game::CreateNewPiece(Difficulty &difficulty)
 {
 	if (!empty) {
 
@@ -151,8 +151,30 @@ void Game::CreateNewPiece()
 	}
 
 	// Random next piece
-	pieceQueue[3].piecetype = GetRand(0, 6);
-	pieceQueue[3].pieceRotation = GetRand(0, 3);	
+	if (difficulty.get_difficulty_level() == 0) {
+		if (GetRand(0, 1) == 0 ) {
+			pieceQueue[3].piecetype = GetRand(0, 1);
+			pieceQueue[3].pieceRotation = GetRand(0, 3);
+		}
+		else {
+			pieceQueue[3].piecetype = GetRand(0, 6);
+			pieceQueue[3].pieceRotation = GetRand(0, 3);
+		}
+	}
+	else if (difficulty.get_difficulty_level() == 2) {
+		if (GetRand(0, 1) == 0) {
+			pieceQueue[3].piecetype = GetRand(2, 6);
+			pieceQueue[3].pieceRotation = GetRand(0, 3);
+		}
+		else {
+			pieceQueue[3].piecetype = GetRand(0, 6);
+			pieceQueue[3].pieceRotation = GetRand(0, 3);
+		}
+	}
+	else if (difficulty.get_difficulty_level() == 1) {
+		pieceQueue[3].piecetype = GetRand(0, 6);
+		pieceQueue[3].pieceRotation = GetRand(0, 3);
+	}
 }
 
 

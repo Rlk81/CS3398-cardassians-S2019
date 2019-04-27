@@ -1,6 +1,6 @@
 #include "Pause_menu.h"
 
-void Pause_menu::Pause_Menu(IO startIO, Board &b, Game &g) {
+void Pause_menu::Pause_Menu(IO startIO, Board &b, Game &g, Difficulty &difficulty) {
 
 
 	//Images for menu
@@ -103,7 +103,7 @@ void Pause_menu::Pause_Menu(IO startIO, Board &b, Game &g) {
 		if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT) &(Mx > 275) && (Mx < 375)
 			& (My < 358)& (My > 300)) {
 			SDL_Delay(100);
-			Reset_Option(b, g);
+			Reset_Option(b, g, difficulty);
 			break;
 		}
 		//if mouse not over button, turns back to original
@@ -127,7 +127,7 @@ void Pause_menu::Pause_Menu(IO startIO, Board &b, Game &g) {
 	if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT) &(Mx > 275) && (Mx < 375)
 		& (My < 458)& (My > 400)) {
 		SDL_Delay(100);
-		Return_to_Start(startIO, b,  g);
+		Return_to_Start(startIO, b,  g, difficulty);
 		break;
 	}
 	//if mouse not over button, turns back to original
@@ -146,21 +146,21 @@ void Pause_menu::Pause_Menu(IO startIO, Board &b, Game &g) {
 
 }
 
-void Pause_menu::Return_to_Start(IO mIO, Board &b, Game &g) {
+void Pause_menu::Return_to_Start(IO mIO, Board &b, Game &g, Difficulty &difficulty) {
 	Start_menu s;
 	//s.set_index(1);
-	s.Start_Menu(mIO);
-	Reset_Option(b, g);
+	s.Start_Menu(mIO, difficulty);
+	Reset_Option(b, g, difficulty);
 	
 }
 
 
 //To be used in resetting game
-void Pause_menu::Reset_Option(Board &b, Game &g)
+void Pause_menu::Reset_Option(Board &b, Game &g, Difficulty &difficulty)
 {
 	//resets board
 	b.ResetBoard();
 	//Creates new pieces/piece queue
 	g.resetHold();
-	g.CreateNewPiece();
+	g.CreateNewPiece(difficulty);
 }
