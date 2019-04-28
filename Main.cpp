@@ -227,7 +227,24 @@ int main()
 
 				break;
 			}
-
+			case (SDLK_1):
+			{
+			//Set game difficulty to easy
+				diff.set_difficulty_level(0);
+				break;
+			}
+			case (SDLK_2):
+			{
+				//Set game difficulty to normal
+				diff.set_difficulty_level(1);
+				break;
+			}
+			case (SDLK_3):
+			{
+				//Set game difficulty to hard
+				diff.set_difficulty_level(2);
+				break;
+			}
 			}
 
 			// ----- Vertical movement -----
