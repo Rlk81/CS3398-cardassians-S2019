@@ -14,10 +14,10 @@
 // --------------------------------------------------------------------------------
 
 
-
+color mColor = MAGENTA;
 class Options_menu{
 public:
-	 color mColor = MAGENTA;
+	 
 
 	void Options_Menu(IO startIO, Difficulty &difficulty, color *mColor);
 
@@ -32,7 +32,6 @@ public:
 	bool hold_button_normal = false;
 	bool hold_button_hard = false;
 
-	int color_index = 1;
 	bool hold_button_grn = false;
 	bool hold_button_cyn = false;
 	bool hold_button_blu = false;
