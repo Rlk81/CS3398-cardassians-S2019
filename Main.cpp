@@ -22,6 +22,8 @@
 #include "Options_menu.h"
 #include "Difficulty.h"
 
+#include <iostream>
+
 #ifndef LINUX
 #include <windows.h>
 #endif
@@ -73,14 +75,15 @@ int main()
 		Start_menu s;
 		s.Start_Menu(mIO, diff);
 
-
+        int lines_cleared = 0;
+        int score = 0;
 
 		bool playing = true;
-
+        
 
 		while (playing) {
 			//while(!mboard.isGameOver())
-
+            
 			// ----- Draw -----
 
 			mIO.ClearScreen(); 		// Clear screen
@@ -124,7 +127,7 @@ int main()
 
 				mBoard.StorePiece(mGame.mPosX, mGame.mPosY - 1, mGame.mPiece, mGame.mRotation);
 
-				mBoard.DeletePossibleLines();
+				mBoard.DeletePossibleLines(lines_cleared);
 
 				if (mBoard.IsGameOver())
 				{
@@ -204,7 +207,7 @@ int main()
 				{
 					mBoard.StorePiece(mGame.mPosX, mGame.mPosY, mGame.mPiece, mGame.mRotation);
 
-					mBoard.DeletePossibleLines();
+					mBoard.DeletePossibleLines(lines_cleared);
 
 					if (mBoard.IsGameOver())
 					{

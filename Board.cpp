@@ -124,7 +124,7 @@ void Board::DeleteLine (int pY)
 Delete all the lines that should be removed
 ====================================== 
 */
-void Board::DeletePossibleLines ()
+void Board::DeletePossibleLines (int& lines_cleared)
 {
 	for (int j = 0; j < BOARD_HEIGHT; j++)
 	{
@@ -135,7 +135,10 @@ void Board::DeletePossibleLines ()
 			i++;
 		}
 
-		if (i == BOARD_WIDTH) DeleteLine (j);
+		if (i == BOARD_WIDTH) { 
+            DeleteLine (j);
+            lines_cleared++;
+        }
 	}
 }
 
