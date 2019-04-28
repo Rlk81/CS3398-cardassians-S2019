@@ -51,18 +51,17 @@ class Game
 {
 public:
 
-	Game			(Board *pBoard, Pieces *pPieces, IO *pIO, int pScreenHeight);
+	Game (Board *pBoard, Pieces *pPieces, IO *pIO, int pScreenHeight);
 
-	void DrawScene ();
+	void DrawScene (color &mColor);
 	void resetHold();
 	void CreateNewPiece (Difficulty &difficulty);
 	void hold(Difficulty &difficulty);
 	int mPosX, mPosY;				// Position of the piece that is falling down
 	int mPiece, mRotation;			// Kind and rotation the piece that is falling down
 	struct Piece pieceQueue[4]; 
-	void DrawPiece();
-	void DrawPiece(int pX, int pY, int pPiece, int pRotation, color mColor);
-	
+	void DrawPiece(int pX, int pY, int pPiece, int pRotation, color &mColor);
+
 private:
 
 	int mScreenHeight;				// Screen height in pixels

@@ -6,6 +6,8 @@
 
 #include "IO.h"
 #include "Difficulty.h"
+#include "Options_menu.h"
+#include "Game.h"
 
 
 // --------------------------------------------------------------------------------

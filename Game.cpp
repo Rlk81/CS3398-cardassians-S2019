@@ -190,7 +190,10 @@ Parameters:
 >> pRotation:	1 of the 4 possible rotations
 ====================================== 
 */
-void Game::DrawPiece(int pX, int pY, int pPiece, int pRotation, color mColor)
+
+
+
+void Game::DrawPiece(int pX, int pY, int pPiece, int pRotation, color &mColor)
 {
 					// Color of the block 
 
@@ -206,7 +209,7 @@ void Game::DrawPiece(int pX, int pY, int pPiece, int pRotation, color mColor)
 			// Get the type of the block and draw it with the correct color
 			switch (mPieces->GetBlockType (pPiece, pRotation, j, i))
 			{
-				case 1: mColor ; break;	// For each block of the piece except the pivot
+				case 1: &mColor ; break;	// For each block of the piece except the pivot
 			
 			}
 			
@@ -276,7 +279,7 @@ Draw scene
 Draw all the objects of the scene
 ====================================== 
 */
-void Game::DrawScene ()
+void Game::DrawScene (color &mColor)
 {
 	DrawBoard ();													// Draw the delimitation lines and blocks stored in the board
 	DrawPiece (mPosX, mPosY, mPiece, mRotation, mColor);					// Draw the playing piece

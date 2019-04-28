@@ -12,12 +12,14 @@
 // --------------------------------------------------------------------------------
 // Options Menu
 // --------------------------------------------------------------------------------
- static color mColor = MAGENTA;
+
+
 
 class Options_menu{
 public:
+	 color mColor = MAGENTA;
 
-	void Options_Menu(IO startIO, Difficulty &difficulty, color &mColor);
+	void Options_Menu(IO startIO, Difficulty &difficulty, color *mColor);
 
 	//May not need these
 	int get_difficulty_index();

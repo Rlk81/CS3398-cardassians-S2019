@@ -1,6 +1,5 @@
 #include "Options_menu.h"
-
-void Options_menu::Options_Menu(IO startIO, Difficulty &difficulty, color &mColor) {
+void Options_menu::Options_Menu(IO startIO, Difficulty &difficulty, color *mColor) {
 
 
 	//Images for menu
@@ -282,7 +281,7 @@ void Options_menu::Options_Menu(IO startIO, Difficulty &difficulty, color &mColo
 				//Click green button
 				// The button will stay clicked until clicked again 
 				if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT) &(Mx > 25) && (Mx < 145) & (My < 308) & (My > 250)) {
-					mColor = GREEN;
+					*mColor = GREEN;
 					if (this->hold_button_grn == false) {
 						this->hold_button_grn = true;
 						this->hold_button_cyn = false;
@@ -291,7 +290,7 @@ void Options_menu::Options_Menu(IO startIO, Difficulty &difficulty, color &mColo
 						this->hold_button_mgnt = false;
 					}
 					else
-						this->hold_button_cyn = false;
+						this->hold_button_grn = false;
 				}
 
 				//if mouse not over button, turns back to original
@@ -315,7 +314,7 @@ void Options_menu::Options_Menu(IO startIO, Difficulty &difficulty, color &mColo
 				//Click cyan button
 				// The button will stay clicked until clicked again and sets the difficulty index to 0
 				if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT) &(Mx > 145) && (Mx < 265) & (My < 308) & (My > 250)) {
-					mColor = CYAN;
+					*mColor = CYAN;
 					if (this->hold_button_grn == false) {
 						this->hold_button_grn = false;
 						this->hold_button_cyn = true;
@@ -348,7 +347,7 @@ void Options_menu::Options_Menu(IO startIO, Difficulty &difficulty, color &mColo
 				//Click Blue button
 				// The button will stay clicked until clicked again and sets the difficulty index to 0
 				if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT) &(Mx > 265) && (Mx < 385) & (My < 308) & (My > 250)) {
-					this->difficulty_index = 0;
+					//mColor = BLUE;
 					if (this->hold_button_grn == false) {
 						this->hold_button_grn = false;
 						this->hold_button_cyn = false;
@@ -381,7 +380,7 @@ void Options_menu::Options_Menu(IO startIO, Difficulty &difficulty, color &mColo
 				//Click White button
 				// The button will stay clicked until clicked again 
 				if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT) &(Mx > 385) && (Mx < 505) & (My < 308) & (My > 250)) {
-					this->difficulty_index = 0;
+					//mColor = WHITE;
 					if (this->hold_button_grn == false) {
 						this->hold_button_grn = false;
 						this->hold_button_cyn = false;
@@ -414,7 +413,7 @@ void Options_menu::Options_Menu(IO startIO, Difficulty &difficulty, color &mColo
 				//Click Magenta button
 				// The button will stay clicked until clicked again and sets the difficulty index to 0
 				if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT) &(Mx > 505) && (Mx < 625) & (My < 308) & (My > 250)) {
-					this->difficulty_index = 0;
+					//mColor = MAGENTA;
 					if (this->hold_button_grn == false) {
 						this->hold_button_grn = false;
 						this->hold_button_cyn = false;

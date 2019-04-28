@@ -84,7 +84,7 @@ int main()
 			// ----- Draw -----
 
 			mIO.ClearScreen(); 		// Clear screen
-			mGame.DrawScene();			// Draw staff
+			mGame.DrawScene(*mColor);			// Draw staff
 			mIO.UpdateScreen();		// Put the graphic context in the screen
 
 			// ----- Input -----
