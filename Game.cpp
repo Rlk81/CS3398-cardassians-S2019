@@ -193,7 +193,7 @@ Parameters:
 
 
 
-void Game::DrawPiece(int pX, int pY, int pPiece, int pRotation, color &mColor)
+void Game::DrawPiece(int pX, int pY, int pPiece, int pRotation, color *mColor)
 {
 					// Color of the block 
 
@@ -209,7 +209,7 @@ void Game::DrawPiece(int pX, int pY, int pPiece, int pRotation, color &mColor)
 			// Get the type of the block and draw it with the correct color
 			switch (mPieces->GetBlockType (pPiece, pRotation, j, i))
 			{
-				case 1: &mColor ; break;	// For each block of the piece except the pivot
+				case 1: *mColor ; break;	// For each block of the piece except the pivot
 			
 			}
 			
@@ -218,7 +218,7 @@ void Game::DrawPiece(int pX, int pY, int pPiece, int pRotation, color &mColor)
 									mPixelsY + j * BLOCK_SIZE, 
 									(mPixelsX + i * BLOCK_SIZE) + BLOCK_SIZE - 1, 
 									(mPixelsY + j * BLOCK_SIZE) + BLOCK_SIZE - 1, 
-									mColor);
+									*mColor);
 		}
 	}
 }
@@ -279,7 +279,7 @@ Draw scene
 Draw all the objects of the scene
 ====================================== 
 */
-void Game::DrawScene (color &mColor)
+void Game::DrawScene (color *mColor)
 {
 	DrawBoard ();													// Draw the delimitation lines and blocks stored in the board
 	DrawPiece (mPosX, mPosY, mPiece, mRotation, mColor);					// Draw the playing piece

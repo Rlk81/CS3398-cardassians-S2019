@@ -1,9 +1,4 @@
-﻿  Game.cpp
-c:\users\ralph\documents\github\cs3398-cardassians-s2019\game.cpp(248): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\ralph\documents\github\cs3398-cardassians-s2019\game.cpp(252): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-  Main.cpp
-c:\users\ralph\documents\github\cs3398-cardassians-s2019\main.cpp(87): error C2065: 'mColor': undeclared identifier
-  Options_menu.cpp
-  Pause_menu.cpp
+﻿  Main.cpp
+c:\users\ralph\documents\github\cs3398-cardassians-s2019\main.cpp(83): error C2065: 'mColor': undeclared identifier
   Start_menu.cpp
 c:\users\ralph\documents\github\cs3398-cardassians-s2019\start_menu.cpp(94): error C2065: 'mColor': undeclared identifier
