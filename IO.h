@@ -47,7 +47,7 @@ class IO
 public:
 
 	IO						();
-
+    SDL_Surface * GetScreen();
 	void DrawRectangle		(int pX1, int pY1, int pX2, int pY2, enum color pC);
 	void DrawVLine(int pX1, int pY1, int pY2, enum color pC);
 	void ClearScreen		();

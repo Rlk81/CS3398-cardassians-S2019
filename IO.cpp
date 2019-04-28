@@ -25,6 +25,8 @@
 
 static SDL_Surface *mScreen;										// Screen
 
+
+
 /* 
 ======================================									
 Init
@@ -35,6 +37,10 @@ IO::IO()
 	InitGraph ();
 }
 
+SDL_Surface * IO::GetScreen() 
+{
+    return mScreen;
+}
 
 /* 
 ======================================									

@@ -21,6 +21,8 @@
 #include "Pause_menu.h"
 #include "Options_menu.h"
 #include "Difficulty.h"
+#include "SDL/SDL_ttf.h"
+#include "IO.h"
 
 #include <iostream>
 
@@ -47,6 +49,7 @@ int main()
 
 
 	IO mIO;
+    TTF_Init();
 	
 //	bool playing = true;
 	// ----- Main Loop -----
@@ -75,6 +78,13 @@ int main()
 		Start_menu s;
 		s.Start_Menu(mIO, diff);
 
+        SDL_Surface *screen = mIO.GetScreen();
+        TTF_Font *font = TTF_OpenFont("Gugi-Regular.ttf", 28); 
+        SDL_Color textColor = { 255, 255, 255 };
+        SDL_Rect offset;
+        offset.x = 0;
+        offset.y = 50;
+        
         int lines_cleared = 0;
         int temp_score = 0;
         int score = 0;
@@ -85,10 +95,26 @@ int main()
 		while (playing) {
 			//while(!mboard.isGameOver())
             
+            std::string lines_string = "Lines Cleared: " + std::to_string(lines_cleared);
+            int lines_string_length = lines_string.length(); 
+            char lines_array[lines_string_length + 1]; 
+            strcpy(lines_array, lines_string.c_str()); 
+            
+            std::string score_string = "Score: " + std::to_string(score);
+            int score_string_length = score_string.length(); 
+            char score_array[score_string_length + 1]; 
+            strcpy(score_array, score_string.c_str()); 
+            
 			// ----- Draw -----
-
+            SDL_Surface *message1 = TTF_RenderText_Solid(font, lines_array, textColor);
+            SDL_Surface *message2 = TTF_RenderText_Solid(font, score_array, textColor);
+            
 			mIO.ClearScreen(); 		// Clear screen
 			mGame.DrawScene();			// Draw staff
+            
+            SDL_BlitSurface(message1, NULL, screen, NULL);
+            SDL_BlitSurface(message2, NULL, screen, &offset);
+            
 			mIO.UpdateScreen();		// Put the graphic context in the screen
 
 			// ----- Input -----
@@ -233,8 +259,12 @@ int main()
 
 				mTime1 = SDL_GetTicks();
 			}
+			SDL_FreeSurface( message1 );
+            SDL_FreeSurface( message2 );
 		}
+		TTF_CloseFont( font );
 	}
+    TTF_Quit();
 
 	return 0;
 }
