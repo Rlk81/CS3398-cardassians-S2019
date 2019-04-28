@@ -17,6 +17,17 @@ void Options_menu::Options_Menu(IO startIO, Difficulty &difficulty) {
 	SDL_Surface* normal_button_mouseover = NULL;
 	SDL_Surface* hard_button = NULL;
 	SDL_Surface* hard_button_mouseover = NULL;
+	//color buttons
+	SDL_Surface* grn_button = NULL;
+	SDL_Surface* grn_mouseover = NULL;
+	SDL_Surface* cyn_button = NULL;
+	SDL_Surface* cyn_mouseover = NULL;
+	SDL_Surface* blu_button = NULL;
+	SDL_Surface* blu_mouseover = NULL;
+	SDL_Surface* wht_button = NULL;
+	SDL_Surface* wht_mouseover = NULL;
+	SDL_Surface* mgnt_button = NULL;
+	SDL_Surface* mgnt_mouseover = NULL;
 	//Start SDL
 	SDL_Init(SDL_INIT_EVERYTHING);
 
@@ -46,6 +57,22 @@ void Options_menu::Options_Menu(IO startIO, Difficulty &difficulty) {
 	hard_button = SDL_LoadBMP("Hard_button.bmp");
 	hard_button_mouseover = SDL_LoadBMP("Hard_button_mouseover.bmp");
 
+	//color buttons
+	grn_button = SDL_LoadBMP("Easy_button.bmp");
+	grn_mouseover = SDL_LoadBMP("Easy_button_mouseover.bmp");
+
+	cyn_button = SDL_LoadBMP("Easy_button.bmp");
+	cyn_mouseover = SDL_LoadBMP("Easy_button_mouseover.bmp");
+
+	blu_button = SDL_LoadBMP("Easy_button.bmp");
+	blu_mouseover = SDL_LoadBMP("Easy_button_mouseover.bmp");
+
+	wht_button = SDL_LoadBMP("Easy_button.bmp");
+	wht_mouseover = SDL_LoadBMP("Easy_button_mouseover.bmp");
+
+	mgnt_button = SDL_LoadBMP("Easy_button.bmp");
+	mgnt_mouseover = SDL_LoadBMP("Easy_button_mouseover.bmp");
+
 
 	SDL_Rect srcrect;
 	//SDL_Rect start_rect;
@@ -53,6 +80,12 @@ void Options_menu::Options_Menu(IO startIO, Difficulty &difficulty) {
 	SDL_Rect easy_rect;
 	SDL_Rect normal_rect;
 	SDL_Rect hard_rect;
+	SDL_Rect grn_rect;
+	SDL_Rect cyn_rect;
+	SDL_Rect blu_rect;
+	SDL_Rect wht_rect;
+	SDL_Rect mgnt_rect;
+
 	srcrect.x = 0;
 	srcrect.y = 0;
 	//start_rect.x = 530 / 2;
@@ -66,6 +99,23 @@ void Options_menu::Options_Menu(IO startIO, Difficulty &difficulty) {
 	hard_rect.x = 400;
 	hard_rect.y = 200;
 
+	//each button is 120 pixels longs with 5 pixel space in 
+	grn_rect.x = 25;
+	grn_rect.y = 250;
+
+	cyn_rect.x = 145;
+	cyn_rect.y = 250;
+
+	blu_rect.x = 265;
+	blu_rect.y = 250;
+
+	wht_rect.x = 385;
+	wht_rect.y = 250;
+
+	mgnt_rect.x = 505;
+	mgnt_rect.y = 250;
+
+
 
 	//SDL_BlitSurface( start_button, &start_button_Rect, start_screen, NULL );
 	//SDL_BlitSurface(start_button, NULL, start_screen, &start_rect);
@@ -76,6 +126,13 @@ void Options_menu::Options_Menu(IO startIO, Difficulty &difficulty) {
 	SDL_BlitSurface(easy_button, NULL, start_screen, &easy_rect);
 	SDL_BlitSurface(normal_button, NULL, start_screen, &normal_rect);
 	SDL_BlitSurface(hard_button, NULL, start_screen, &hard_rect);
+
+	SDL_BlitSurface(grn_button, NULL, start_screen, &grn_rect);
+	SDL_BlitSurface(cyn_button, NULL, start_screen, &cyn_rect);
+	SDL_BlitSurface(blu_button, NULL, start_screen, &blu_rect);
+	SDL_BlitSurface(wht_button, NULL, start_screen, &wht_rect);
+	SDL_BlitSurface(mgnt_button, NULL, start_screen, &mgnt_rect);
+
 
 	//Coordinates for mouse
 	int Mx = 0;
@@ -210,6 +267,171 @@ void Options_menu::Options_Menu(IO startIO, Difficulty &difficulty) {
 					if ((Mx < 425) || (Mx > 560) || (My > 258) || (My < 200)) {
 						SDL_Flip(start_screen);
 						SDL_BlitSurface(hard_button, NULL, start_screen, &hard_rect);
+					}
+				}
+
+				//green button section
+			//if over options button, button turns white
+				SDL_GetMouseState(&Mx, &My);
+				if ((Mx > 25) && (Mx < 145))
+					if ((My < 308)& (My > 250)) {
+						SDL_Flip(start_screen);
+						SDL_BlitSurface(grn_mouseover, NULL, start_screen, &grn_rect);
+					}
+
+				//Click green button
+				// The button will stay clicked until clicked again and sets the difficulty index to 0
+				if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT) &(Mx > 25) && (Mx < 145) & (My < 308) & (My > 250)) {
+					this->difficulty_index = 0;
+					if (this->hold_button_grn == false) {
+						this->hold_button_grn = true;
+						this->hold_button_cyn = false;
+						this->hold_button_blu = false;
+						this->hold_button_wht = false;
+						this->hold_button_mgnt = false;
+					}
+					else
+						this->hold_button_grn = false;
+				}
+
+				//if mouse not over button, turns back to original
+				SDL_GetMouseState(&Mx, &My);
+				if (hold_button_grn == false) {
+					if ((Mx < 25) || (Mx > 145) || (My > 308) || (My < 250)) {
+						SDL_Flip(start_screen);
+						SDL_BlitSurface(grn_button, NULL, start_screen, &grn_rect);
+					}
+				}
+
+				//cyan button section
+		//if over options button, button turns white
+				SDL_GetMouseState(&Mx, &My);
+				if ((Mx > 145) && (Mx < 265))
+					if ((My < 308)& (My > 250)) {
+						SDL_Flip(start_screen);
+						SDL_BlitSurface(cyn_mouseover, NULL, start_screen, &cyn_rect);
+					}
+
+				//Click cyan button
+				// The button will stay clicked until clicked again and sets the difficulty index to 0
+				if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT) &(Mx > 145) && (Mx < 265) & (My < 308) & (My > 250)) {
+					this->difficulty_index = 0;
+					if (this->hold_button_grn == false) {
+						this->hold_button_grn = false;
+						this->hold_button_cyn = true;
+						this->hold_button_blu = false;
+						this->hold_button_wht = false;
+						this->hold_button_mgnt = false;
+					}
+					else
+						this->hold_button_cyn = false;
+				}
+
+				//if mouse not over button, turns back to original
+				SDL_GetMouseState(&Mx, &My);
+				if (hold_button_grn == false) {
+					if ((Mx < 145) || (Mx > 265) || (My > 308) || (My < 250)) {
+						SDL_Flip(start_screen);
+						SDL_BlitSurface(cyn_button, NULL, start_screen, &cyn_rect);
+					}
+				}
+
+				//Blue button section
+		//if over options button, button turns white
+				SDL_GetMouseState(&Mx, &My);
+				if ((Mx > 265) && (Mx < 385))
+					if ((My < 308)& (My > 250)) {
+						SDL_Flip(start_screen);
+						SDL_BlitSurface(blu_mouseover, NULL, start_screen, &blu_rect);
+					}
+
+				//Click Blue button
+				// The button will stay clicked until clicked again and sets the difficulty index to 0
+				if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT) &(Mx > 265) && (Mx < 385) & (My < 308) & (My > 250)) {
+					this->difficulty_index = 0;
+					if (this->hold_button_grn == false) {
+						this->hold_button_grn = false;
+						this->hold_button_cyn = true;
+						this->hold_button_blu = false;
+						this->hold_button_wht = false;
+						this->hold_button_mgnt = false;
+					}
+					else
+						this->hold_button_blu = false;
+				}
+
+				//if mouse not over button, turns back to original
+				SDL_GetMouseState(&Mx, &My);
+				if (hold_button_blu == false) {
+					if ((Mx < 265) || (Mx > 385) || (My > 308) || (My < 250)) {
+						SDL_Flip(start_screen);
+						SDL_BlitSurface(blu_button, NULL, start_screen, &blu_rect);
+					}
+				}
+
+				//White button section
+		//if over options button, button turns white
+				SDL_GetMouseState(&Mx, &My);
+				if ((Mx > 385) && (Mx < 505))
+					if ((My < 308)& (My > 250)) {
+						SDL_Flip(start_screen);
+						SDL_BlitSurface(wht_mouseover, NULL, start_screen, &wht_rect);
+					}
+
+				//Click White button
+				// The button will stay clicked until clicked again and sets the difficulty index to 0
+				if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT) &(Mx > 385) && (Mx < 505) & (My < 308) & (My > 250)) {
+					this->difficulty_index = 0;
+					if (this->hold_button_grn == false) {
+						this->hold_button_grn = false;
+						this->hold_button_cyn = true;
+						this->hold_button_blu = false;
+						this->hold_button_wht = false;
+						this->hold_button_mgnt = false;
+					}
+					else
+						this->hold_button_grn = false;
+				}
+
+				//if mouse not over button, turns back to original
+				SDL_GetMouseState(&Mx, &My);
+				if (hold_button_wht == false) {
+					if ((Mx < 385) || (Mx > 505) || (My > 308) || (My < 250)) {
+						SDL_Flip(start_screen);
+						SDL_BlitSurface(wht_button, NULL, start_screen, &wht_rect);
+					}
+				}
+
+				//Magenta button section
+		//if over options button, button turns white
+				SDL_GetMouseState(&Mx, &My);
+				if ((Mx > 505) && (Mx < 625))
+					if ((My < 308)& (My > 250)) {
+						SDL_Flip(start_screen);
+						SDL_BlitSurface(mgnt_mouseover, NULL, start_screen, &mgnt_rect);
+					}
+
+				//Click Magenta button
+				// The button will stay clicked until clicked again and sets the difficulty index to 0
+				if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT) &(Mx > 505) && (Mx < 625) & (My < 308) & (My > 250)) {
+					this->difficulty_index = 0;
+					if (this->hold_button_grn == false) {
+						this->hold_button_grn = false;
+						this->hold_button_cyn = false;
+						this->hold_button_blu = false;
+						this->hold_button_wht = false;
+						this->hold_button_mgnt = false;
+					}
+					else
+						this->hold_button_mgnt = false;
+				}
+
+				//if mouse not over button, turns back to original
+				SDL_GetMouseState(&Mx, &My);
+				if (hold_button_mgnt == false) {
+					if ((Mx < 505) || (Mx > 625) || (My > 308) || (My < 250)) {
+						SDL_Flip(start_screen);
+						SDL_BlitSurface(mgnt_button, NULL, start_screen, &mgnt_rect);
 					}
 				}
 

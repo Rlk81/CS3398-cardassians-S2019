@@ -26,6 +26,14 @@ public:
 	bool hold_button_easy = false;
 	bool hold_button_normal = false;
 	bool hold_button_hard = false;
+
+	int color_index = 1;
+	bool hold_button_grn = false;
+	bool hold_button_cyn = false;
+	bool hold_button_blu = false;
+	bool hold_button_wht = false;
+	bool hold_button_mgnt = false;
+
 	
 };
 
