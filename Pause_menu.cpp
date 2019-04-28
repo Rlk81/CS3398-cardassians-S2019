@@ -1,6 +1,6 @@
 #include "Pause_menu.h"
 
-void Pause_menu::Pause_Menu(IO startIO, Board &b, Game &g, Difficulty &difficulty) {
+void Pause_menu::Pause_Menu(IO startIO, Board &b, Game &g, Difficulty &difficulty, int& lines_cleared, int& temp_score, int& score) {
 
 
 	//Images for menu
@@ -103,6 +103,10 @@ void Pause_menu::Pause_Menu(IO startIO, Board &b, Game &g, Difficulty &difficult
 		if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT) &(Mx > 275) && (Mx < 375)
 			& (My < 358)& (My > 300)) {
 			SDL_Delay(100);
+            //resets score
+            lines_cleared = 0;
+            temp_score = 0;
+            score = 0;
 			Reset_Option(b, g, difficulty);
 			break;
 		}
@@ -127,6 +131,10 @@ void Pause_menu::Pause_Menu(IO startIO, Board &b, Game &g, Difficulty &difficult
 	if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT) &(Mx > 275) && (Mx < 375)
 		& (My < 458)& (My > 400)) {
 		SDL_Delay(100);
+        //resets score
+        lines_cleared = 0;
+        temp_score = 0;
+        score = 0;
 		Return_to_Start(startIO, b,  g, difficulty);
 		break;
 	}
@@ -158,6 +166,7 @@ void Pause_menu::Return_to_Start(IO mIO, Board &b, Game &g, Difficulty &difficul
 //To be used in resetting game
 void Pause_menu::Reset_Option(Board &b, Game &g, Difficulty &difficulty)
 {
+    
 	//resets board
 	b.ResetBoard();
 	//Creates new pieces/piece queue

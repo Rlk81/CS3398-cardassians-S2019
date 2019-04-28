@@ -164,6 +164,12 @@ int main()
 					//mIO.Getkey();
 					s.Start_Menu(mIO,diff);
 					mBoard.ResetBoard();
+                    
+                    //resets score
+                    lines_cleared = 0;
+                    temp_score = 0;
+                    score = 0;
+                    
 					mGame.resetHold();
 					break;
 					//Creates new pieces/piece queue
@@ -194,7 +200,7 @@ int main()
 			{
 
 				Pause_menu p;
-				p.Pause_Menu(mIO, mBoard, mGame, diff);
+				p.Pause_Menu(mIO, mBoard, mGame, diff, lines_cleared, temp_score, score);
 
 				break;
 			}
@@ -209,6 +215,12 @@ int main()
 			{
 				//resets board
 				mBoard.ResetBoard();
+                
+                //resets score
+                lines_cleared = 0;
+                temp_score = 0;
+                score = 0;
+                
 				mGame.resetHold();
 				//Creates new pieces/piece queue
 				mGame.CreateNewPiece(diff);
@@ -247,6 +259,12 @@ int main()
 						//mIO.Getkey();
 						s.Start_Menu(mIO,diff);
 						mBoard.ResetBoard();
+                        
+                        //resets score
+                        lines_cleared = 0;
+                        temp_score = 0;
+                        score = 0;
+                        
 						mGame.resetHold();
 						break;
 						//Creates new pieces/piece queue
