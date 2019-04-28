@@ -1,6 +1,6 @@
 #include "Options_menu.h"
 
-void Options_menu::Options_Menu(IO startIO, Difficulty &difficulty) {
+void Options_menu::Options_Menu(IO startIO, Difficulty &difficulty, color &mColor) {
 
 
 	//Images for menu
@@ -280,9 +280,9 @@ void Options_menu::Options_Menu(IO startIO, Difficulty &difficulty) {
 					}
 
 				//Click green button
-				// The button will stay clicked until clicked again and sets the difficulty index to 0
+				// The button will stay clicked until clicked again 
 				if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT) &(Mx > 25) && (Mx < 145) & (My < 308) & (My > 250)) {
-					this->difficulty_index = 0;
+					mColor = GREEN;
 					if (this->hold_button_grn == false) {
 						this->hold_button_grn = true;
 						this->hold_button_cyn = false;
@@ -291,7 +291,7 @@ void Options_menu::Options_Menu(IO startIO, Difficulty &difficulty) {
 						this->hold_button_mgnt = false;
 					}
 					else
-						this->hold_button_grn = false;
+						this->hold_button_cyn = false;
 				}
 
 				//if mouse not over button, turns back to original
@@ -315,7 +315,7 @@ void Options_menu::Options_Menu(IO startIO, Difficulty &difficulty) {
 				//Click cyan button
 				// The button will stay clicked until clicked again and sets the difficulty index to 0
 				if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT) &(Mx > 145) && (Mx < 265) & (My < 308) & (My > 250)) {
-					this->difficulty_index = 0;
+					mColor = CYAN;
 					if (this->hold_button_grn == false) {
 						this->hold_button_grn = false;
 						this->hold_button_cyn = true;
@@ -329,7 +329,7 @@ void Options_menu::Options_Menu(IO startIO, Difficulty &difficulty) {
 
 				//if mouse not over button, turns back to original
 				SDL_GetMouseState(&Mx, &My);
-				if (hold_button_grn == false) {
+				if (hold_button_cyn == false) {
 					if ((Mx < 145) || (Mx > 265) || (My > 308) || (My < 250)) {
 						SDL_Flip(start_screen);
 						SDL_BlitSurface(cyn_button, NULL, start_screen, &cyn_rect);
@@ -351,8 +351,8 @@ void Options_menu::Options_Menu(IO startIO, Difficulty &difficulty) {
 					this->difficulty_index = 0;
 					if (this->hold_button_grn == false) {
 						this->hold_button_grn = false;
-						this->hold_button_cyn = true;
-						this->hold_button_blu = false;
+						this->hold_button_cyn = false;
+						this->hold_button_blu = true;
 						this->hold_button_wht = false;
 						this->hold_button_mgnt = false;
 					}
@@ -379,18 +379,18 @@ void Options_menu::Options_Menu(IO startIO, Difficulty &difficulty) {
 					}
 
 				//Click White button
-				// The button will stay clicked until clicked again and sets the difficulty index to 0
+				// The button will stay clicked until clicked again 
 				if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT) &(Mx > 385) && (Mx < 505) & (My < 308) & (My > 250)) {
 					this->difficulty_index = 0;
 					if (this->hold_button_grn == false) {
 						this->hold_button_grn = false;
-						this->hold_button_cyn = true;
+						this->hold_button_cyn = false;
 						this->hold_button_blu = false;
-						this->hold_button_wht = false;
+						this->hold_button_wht = true;
 						this->hold_button_mgnt = false;
 					}
 					else
-						this->hold_button_grn = false;
+						this->hold_button_wht = false;
 				}
 
 				//if mouse not over button, turns back to original
@@ -420,7 +420,7 @@ void Options_menu::Options_Menu(IO startIO, Difficulty &difficulty) {
 						this->hold_button_cyn = false;
 						this->hold_button_blu = false;
 						this->hold_button_wht = false;
-						this->hold_button_mgnt = false;
+						this->hold_button_mgnt = true;
 					}
 					else
 						this->hold_button_mgnt = false;

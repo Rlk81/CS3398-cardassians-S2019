@@ -6,15 +6,18 @@
 #include "IO.h"
 #include "Start_menu.h"
 #include "Difficulty.h"
+#include "Game.h"
 
 
 // --------------------------------------------------------------------------------
 // Options Menu
 // --------------------------------------------------------------------------------
+ static color mColor = MAGENTA;
+
 class Options_menu{
 public:
-	
-	void Options_Menu(IO startIO, Difficulty &difficulty);
+
+	void Options_Menu(IO startIO, Difficulty &difficulty, color &mColor);
 
 	//May not need these
 	int get_difficulty_index();

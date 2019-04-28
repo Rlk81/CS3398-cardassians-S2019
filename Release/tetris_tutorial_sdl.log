@@ -1,8 +1,10 @@
-﻿  Options_menu.cpp
+﻿  Game.cpp
+c:\users\ralph\documents\github\cs3398-cardassians-s2019\game.cpp(245): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\ralph\documents\github\cs3398-cardassians-s2019\game.cpp(249): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
      Creating library C:\Users\ralph\Documents\GitHub\CS3398-cardassians-S2019\Release\tetris_tutorial_sdl.lib and object C:\Users\ralph\Documents\GitHub\CS3398-cardassians-S2019\Release\tetris_tutorial_sdl.exp
   Generating code
-  2 of 49 functions ( 4.1%) were compiled, the rest were copied from previous compilation.
+  0 of 49 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    2 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   tetris_tutorial_sdl.vcxproj -> C:\Users\ralph\Documents\GitHub\CS3398-cardassians-S2019\Release\tetris_tutorial_sdl.exe

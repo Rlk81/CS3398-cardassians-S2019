@@ -26,6 +26,7 @@
 #include "Pieces.h"
 #include "IO.h"
 #include "Difficulty.h"
+#include "Options_menu.h"
 #include <time.h>
 
 
@@ -59,6 +60,9 @@ public:
 	int mPosX, mPosY;				// Position of the piece that is falling down
 	int mPiece, mRotation;			// Kind and rotation the piece that is falling down
 	struct Piece pieceQueue[4]; 
+	void DrawPiece();
+	void DrawPiece(int pX, int pY, int pPiece, int pRotation, color mColor);
+	
 private:
 
 	int mScreenHeight;				// Screen height in pixels
@@ -78,7 +82,7 @@ private:
 
 	void InitGame();
 	int GetRand (int pA, int pB);
-	void DrawPiece (int pX, int pY, int pPiece, int pRotation);
+	
 	void DrawBoard ();
 };
 

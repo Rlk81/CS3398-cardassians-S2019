@@ -91,7 +91,7 @@ void Start_menu::Start_Menu(IO startIO, Difficulty &difficulty) {
 		// Creates new options menu- there's gotta be a better way to do this
                 if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT) &(Mx > 265) && (Mx < 400) & (My < 358) & (My > 300)) {
                         Options_menu o;
-                        o.Options_Menu(startIO, difficulty);
+                        o.Options_Menu(startIO, difficulty, mColor);
 						this->diff_index = o.get_difficulty_index();
                         break;
                 }

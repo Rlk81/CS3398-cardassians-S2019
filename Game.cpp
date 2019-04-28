@@ -190,9 +190,9 @@ Parameters:
 >> pRotation:	1 of the 4 possible rotations
 ====================================== 
 */
-void Game::DrawPiece (int pX, int pY, int pPiece, int pRotation)
+void Game::DrawPiece(int pX, int pY, int pPiece, int pRotation, color mColor)
 {
-	color mColor;				// Color of the block 
+					// Color of the block 
 
 	// Obtain the position in pixel in the screen of the block we want to draw
 	int mPixelsX = mBoard->GetXPosInPixels (pX);
@@ -206,8 +206,8 @@ void Game::DrawPiece (int pX, int pY, int pPiece, int pRotation)
 			// Get the type of the block and draw it with the correct color
 			switch (mPieces->GetBlockType (pPiece, pRotation, j, i))
 			{
-				case 1: mColor = MAGENTA; break;	// For each block of the piece except the pivot
-				case 2: mColor = MAGENTA; break;	// For the pivot
+				case 1: mColor ; break;	// For each block of the piece except the pivot
+			
 			}
 			
 			if (mPieces->GetBlockType (pPiece, pRotation, j, i) != 0)
@@ -279,15 +279,15 @@ Draw all the objects of the scene
 void Game::DrawScene ()
 {
 	DrawBoard ();													// Draw the delimitation lines and blocks stored in the board
-	DrawPiece (mPosX, mPosY, mPiece, mRotation);					// Draw the playing piece
+	DrawPiece (mPosX, mPosY, mPiece, mRotation, mColor);					// Draw the playing piece
 	
 	for (int i = 0; i < 4; i++)
 	{
-		DrawPiece(pieceQueue[i].posX, pieceQueue[i].posY, pieceQueue[i].piecetype, pieceQueue[i].pieceRotation);
+		DrawPiece(pieceQueue[i].posX, pieceQueue[i].posY, pieceQueue[i].piecetype, pieceQueue[i].pieceRotation, mColor);
 	}
 
 	if (!empty)
-		DrawPiece(hPosX, hPosY, hPiece, hRotation);
+		DrawPiece(hPosX, hPosY, hPiece, hRotation, mColor);
 }
 
 
