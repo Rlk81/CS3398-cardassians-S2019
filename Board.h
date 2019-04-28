@@ -52,7 +52,7 @@ public:
 	bool IsFreeBlock			(int pX, int pY);
 	bool IsPossibleMovement		(int pX, int pY, int pPiece, int pRotation);
 	void StorePiece				(int pX, int pY, int pPiece, int pRotation);
-	void DeletePossibleLines	(int& lines_cleared);
+	void DeletePossibleLines	(int& lines_cleared,  int& temp_score);
 	bool IsGameOver				();
 	void ResetBoard				();
 private:

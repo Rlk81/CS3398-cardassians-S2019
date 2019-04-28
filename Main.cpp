@@ -76,6 +76,7 @@ int main()
 		s.Start_Menu(mIO, diff);
 
         int lines_cleared = 0;
+        int temp_score = 0;
         int score = 0;
 
 		bool playing = true;
@@ -127,7 +128,9 @@ int main()
 
 				mBoard.StorePiece(mGame.mPosX, mGame.mPosY - 1, mGame.mPiece, mGame.mRotation);
 
-				mBoard.DeletePossibleLines(lines_cleared);
+				mBoard.DeletePossibleLines(lines_cleared, temp_score);
+                score += temp_score;
+                temp_score = 0;
 
 				if (mBoard.IsGameOver())
 				{
@@ -207,7 +210,9 @@ int main()
 				{
 					mBoard.StorePiece(mGame.mPosX, mGame.mPosY, mGame.mPiece, mGame.mRotation);
 
-					mBoard.DeletePossibleLines(lines_cleared);
+					mBoard.DeletePossibleLines(lines_cleared, temp_score);
+                    score += temp_score;
+                    temp_score = 0;
 
 					if (mBoard.IsGameOver())
 					{

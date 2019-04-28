@@ -124,8 +124,10 @@ void Board::DeleteLine (int pY)
 Delete all the lines that should be removed
 ====================================== 
 */
-void Board::DeletePossibleLines (int& lines_cleared)
+void Board::DeletePossibleLines (int& lines_cleared, int& temp_score)
 {
+    int temp_score_lines = 0;
+    
 	for (int j = 0; j < BOARD_HEIGHT; j++)
 	{
 		int i = 0;
@@ -138,6 +140,22 @@ void Board::DeletePossibleLines (int& lines_cleared)
 		if (i == BOARD_WIDTH) { 
             DeleteLine (j);
             lines_cleared++;
+            temp_score_lines++;
+        }
+        
+        switch (temp_score_lines) {
+            case 1:
+                temp_score = 40;
+                break;
+            case 2:
+                temp_score = 100;
+                break;
+            case 3:
+                temp_score = 300;
+                break;
+            case 4:
+                temp_score = 1200;
+                break;
         }
 	}
 }
