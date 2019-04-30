@@ -206,7 +206,7 @@ void Game::DrawPiece(int pX, int pY, int pPiece, int pRotation, color mColor)
 			// Get the type of the block and draw it with the correct color
 			switch (mPieces->GetBlockType (pPiece, pRotation, j, i))
 			{
-				case 1: mColor ; break;	// For each block of the piece except the pivot
+				case 1: mColor =CYAN ; break;	// For each block of the piece except the pivot
 			
 			}
 			
