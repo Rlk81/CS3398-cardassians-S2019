@@ -100,4 +100,6 @@ Current additional features: Start menu, pause menu, options menu, extended piec
   * Bug Fix: 
         Before, changing difficulty would permanently change it unless Teetris was closed and reopened.
         Now, Diffculty change works as intended.
-  
+* Brian
+  * Features added:
+     The difficulty class `difficulty.h` and `difficulty.cpp` now changes the probability of getting certain blocks. In easy, you are much more likely to get the two easiest blocks, the squre and the line. And for hard you have a much higher chance to not get those easier blocks. Normal has no changes as it is the natural game mode. This addition is on top of the speed change from the last sprint. I also added the ability to change difficulty in game `main.cpp` by pressing the 1, 2, or 3 keys (for easy, normal, hard). 
