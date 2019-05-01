@@ -92,7 +92,7 @@ Current additional features: Start menu, pause menu, options menu, extended piec
 
 ## Project Status & Added Features After Sprint 3 / Retrospective
 * Ralph
-  * I implemented a few features this sprint, but do to lack of time and resources one was not able to be added to the final build.  I added a few extra buttons with the intent of being able to change the color of the blocks, but was unable to implent the changing color function though i did change the initial color of the block.  I also had a feature in which the user was able to change the resolution size of the game and pictures of this are inside available, but the feature had to be cut due to the previously listed reasons.  
+  * I implemented a few features this sprint, but do to lack of time and resources one was not able to be added to the final build.  I added a few extra buttons with the intent of being able to change the color of the blocks, but was unable to implent the changing color function though i did change the initial color of the block.  I also had a feature in which the user was able to change the resolution size of the game and pictures of these features are available in the research material folder, but the feature had to be cut due to the previously listed reasons.  
 * John
   * Feature Added: 
       Before, the game would close after a gameover. 
