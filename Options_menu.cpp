@@ -58,20 +58,21 @@ void Options_menu::Options_Menu(IO startIO, Difficulty &difficulty, color &mColo
 	hard_button_mouseover = SDL_LoadBMP("Hard_button_mouseover.bmp");
 
 	//color buttons
-	grn_button = SDL_LoadBMP("Easy_button.bmp");
-	grn_mouseover = SDL_LoadBMP("Easy_button_mouseover.bmp");
+    grn_button = SDL_LoadBMP("g.bmp");
+	grn_mouseover = SDL_LoadBMP("g_m.bmp");
 
-	cyn_button = SDL_LoadBMP("Easy_button.bmp");
-	cyn_mouseover = SDL_LoadBMP("Easy_button_mouseover.bmp");
+	cyn_button = SDL_LoadBMP("c.bmp");
+	cyn_mouseover = SDL_LoadBMP("c_b.bmp");
 
-	blu_button = SDL_LoadBMP("Easy_button.bmp");
-	blu_mouseover = SDL_LoadBMP("Easy_button_mouseover.bmp");
+	blu_button = SDL_LoadBMP("b.bmp");
+	blu_mouseover = SDL_LoadBMP("b_m.bmp");
 
-	wht_button = SDL_LoadBMP("Easy_button.bmp");
-	wht_mouseover = SDL_LoadBMP("Easy_button_mouseover.bmp");
+	wht_button = SDL_LoadBMP("w.bmp");
+	wht_mouseover = SDL_LoadBMP("w_b.bmp");
 
-	mgnt_button = SDL_LoadBMP("Easy_button.bmp");
-	mgnt_mouseover = SDL_LoadBMP("Easy_button_mouseover.bmp");
+	mgnt_button = SDL_LoadBMP("m.bmp");
+	mgnt_mouseover = SDL_LoadBMP("m_b.bmp");
+
 
 
 	SDL_Rect srcrect;
