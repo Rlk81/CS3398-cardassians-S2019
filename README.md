@@ -20,8 +20,8 @@ This project is special becuase in this project, our team will take a Tetris clo
   * If you are using an updated version of Visual Studios you can also install the Windows 8.1 SDk via the associated installer application and you just have to find the right package for it.
 * Linux
   * Install dependencies for sdl
-    * Debian & derivatives: `apt-get install libsdl-gfx1.2-dev libsdl1.2-dev`
-    * Arch & derivatives: `pacman -S sdl_gfx sdl`
+    * Debian & derivatives: `apt-get install libsdl-gfx1.2-dev libsdl-ttf1.2-dev libsdl1.2-dev`
+    * Arch & derivatives: `pacman -S sdl_gfx sdl_ttf sdl`
   * Compile using the included makefile
   
 ## How to play
@@ -91,6 +91,7 @@ Current additional features: Start menu, pause menu, options menu, extended piec
   * added return to start menu in the Pause Menu.
 
 ## Project Status & Added Features After Sprint 3 / Retrospective
+Status: Fully functional game with a variety of features added. Some features have had the groundwork laid out, but are not yet implemented entirely. Individual contributions are described below:
 * Ralph
   * I implemented a few features this sprint, but do to lack of time and resources one was not able to be added to the final build.  I added a few extra buttons with the intent of being able to change the color of the blocks, but was unable to implent the changing color function though i did change the initial color of the block.  I also had a feature in which the user was able to change the resolution size of the game and pictures of these features are available in the research material folder, but the feature had to be cut due to the previously listed reasons.  
 * John
@@ -103,3 +104,6 @@ Current additional features: Start menu, pause menu, options menu, extended piec
 * Brian
   * Features added:
      The difficulty class `difficulty.h` and `difficulty.cpp` now changes the probability of getting certain blocks. In easy, you are much more likely to get the two easiest blocks, the squre and the line. And for hard you have a much higher chance to not get those easier blocks. Normal has no changes as it is the natural game mode. This addition is on top of the speed change from the last sprint. I also added the ability to change difficulty in game `main.cpp` by pressing the 1, 2, or 3 keys (for easy, normal, hard). 
+* Isaac
+  * Features added:
+     Scorekeeping was added, counting lines cleared and appropriate score scheme for the game. Added the SDL TTF library to the project structure. Scores were displayed to the screen in-game using the SDL TTF library. Also created new buttons for the color scheme selection in the Options menu (New bitmap images). Score logic and display functionality can be found in `Moard.cpp`, `Main.cpp`, `IO.cpp`, and `Pause_menu.cpp`. Additional TTF library files were added in the /SDL/ directory.
